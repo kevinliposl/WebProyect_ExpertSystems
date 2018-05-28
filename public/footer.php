@@ -1,7 +1,7 @@
 <footer class="bg-dark type-2">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-sm-6 no-padding">
+            <div class="col-lg-5 col-md-5 col-sm-6 col-sm-6 no-padding">
                 <div class="footer-block">
                     <h6>Sitios Nuevos</h6>
                     <div class="f_news clearfix">
@@ -53,31 +53,6 @@
                     <a href="#" class="tags-b">countries</a>
                 </div>
             </div>
-            <!--
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="footer-block">
-                    <h6>Contactenos</h6>
-                    <div class="contact-info">
-                        <div class="contact-line color-grey-3">
-                            <i class="fa fa-map-marker"></i>
-                            <span>Turrialba, Cartago, Costa Rica</span>
-                        </div>
-                        <div class="contact-line color-grey-3">
-                            <i class="fa fa-phone"></i>
-                            <a href="tel:93123456789">+93 123 456 789</a>
-                        </div>
-                        <div class="contact-line color-grey-3">
-                            <i class="fa fa-envelope-o"></i>
-                            <a href="mailto:">letstravel@mail.com</a>
-                        </div>
-                        <div class="contact-line color-grey-3">
-                            <i class="fa fa-globe"></i>
-                            <a href="#">let’s_travel@world.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
         </div>
     </div>
     <div class="footer-link bg-black">
@@ -89,10 +64,10 @@
                     </div>
                     <ul>
                         <li>
-                            <a class="link-aqua" href="#">Quienes Somos</a>
+                            <a class="link-aqua" href="?action=aboutUs">Quienes Somos</a>
                         </li>
                         <li>
-                            <a class="link-aqua" href="#">Sobre Nosotros</a>
+                            <a class="link-aqua" href="?action=contact">Contáctenos</a>
                         </li>
                     </ul>
                 </div>

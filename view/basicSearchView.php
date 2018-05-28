@@ -5,7 +5,7 @@ include_once 'public/header.php';
 
 <script>
     (function () {
-        var element = document.getElementById("menu-advanced-search");
+        var element = document.getElementById("menu-basic-search");
         element.classList.add("active");
     })();
 </script>
@@ -62,13 +62,13 @@ include_once 'public/header.php';
                         <h4>Localización</h4>
                         <div class="input-style-1">
                             <img src="public/img/loc_icon_small_grey.png" alt="">
-                            <input type="text" placeholder="Destination" required>
+                            <input type="text" placeholder="Destino" required>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="hotels-block">
                         <h4>Atracción</h4>
                         <div class="input-style-1"> 
@@ -80,7 +80,7 @@ include_once 'public/header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="hotels-block">
                         <h4>Tipo</h4>
                         <div class="input-style-1"> 
@@ -92,7 +92,7 @@ include_once 'public/header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="hotels-block">
                         <h4>Calificación</h4>
                         <div class="input-style-1"> 
@@ -104,7 +104,7 @@ include_once 'public/header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="hotels-block">
                         <h4>Tipo</h4>
                         <div class="input-style-1"> 
@@ -116,13 +116,6 @@ include_once 'public/header.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="submit">
-                        <input class="c-button b-60 bg-white hv-orange" type="submit" value="search now">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-md-12">
                     <div class="range-wrapp">
                         <h4>Rango de Precios</h4>
@@ -133,6 +126,11 @@ include_once 'public/header.php';
                         </div>
                     </div>
                 </div>
+                <div class="col-md-7">
+                    <div class="submit">
+                        <input class="c-button b-60 bg-white hv-orange" type="submit" value="Buscar Ahora">
+                    </div>
+                </div>
             </div>
         </div>
     </form>
@@ -140,11 +138,10 @@ include_once 'public/header.php';
 
 <div class="main-wraper hotel-items">
     <div class="container">
-        <div class="row">
+        <div class="row" style="padding-top: 50px;">
             <div class="col-md-12">
                 <div class="second-title">
                     <h2>Búsqueda (16)</h2>
-                    <p class="color-grey">Curabitur nunc erat, consequat in erat ut, congue bibendum nulla. Suspendisse id tor.</p>
                 </div>
             </div>
         </div>

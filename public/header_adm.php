@@ -12,7 +12,6 @@
         <title>PK Tourism</title>
     </head>
     <body id="body" data-color="theme-1">
-
         <div class="loading dr-blue">
             <div class="loading-center">
                 <div class="loading-center-absolute">
@@ -23,7 +22,6 @@
                 </div>
             </div>
         </div>
-
         <header class="color-1 hovered menu-3">
             <div class="container">
                 <div class="row">
@@ -39,32 +37,14 @@
                             </div>
                             <nav class="menu">
                                 <ul>
-                                    <li id="menu-basic-search" class="type-1">
-                                        <a href="?action=basicSearch">B&uacute;squedar
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
+                                    <li id="menu-user"class="type-1"><a href="#">Destino<span class="fa fa-angle-down"></span></a>
+                                        <ul class="dropmenu">
+                                            <li><a href="?action=insertDestiny">Registrar</a></li>
+                                            <li><a href="?action=updateDestiny">Actualizar</a></li>
+                                            <li><a href="?action=deleteDestiny">Eliminar</a></li>
+                                        </ul>
                                     </li>
-                                    <li id="menu-sign-in" class="type-1">
-                                        <a href="?action=login">Inicia Sesión
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
-                                    </li>
-                                    <li id="menu-sign-up" class="type-1">
-                                        <a href="?action=register">Regístrate
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
-                                    </li>
-                                    <li id="menu-about-us" class="type-1">
-                                        <a href="?action=aboutUs">Sobre Nosotros
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
-                                    </li>
-                                    <li id="menu-contact" class="type-1">
-                                        <a href="?action=contact">Contáctenos
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                </ul> 
                             </nav>
                         </div>
                     </div>

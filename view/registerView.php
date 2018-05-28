@@ -5,7 +5,7 @@ include_once 'public/header.php';
 
 <script>
     (function () {
-        var element = document.getElementById("menu-register");
+        var element = document.getElementById("menu-sign-up");
         element.classList.add("active");
     })();
 </script>

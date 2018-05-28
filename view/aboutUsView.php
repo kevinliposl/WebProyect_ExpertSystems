@@ -1,8 +1,16 @@
 <?php
+
 include_once 'public/header.php';
 ?>
 
-<!-- INNER-BANNER -->
+
+<script>
+    (function () {
+        var element = document.getElementById("menu-about-us");
+        element.classList.add("active");
+    })();
+</script>
+
 <div class="inner-banner style-6">
     <img class="center-image" src="public/img/inner/bg_3.jpg" alt="">
     <div class="vertical-align">
@@ -73,5 +81,6 @@ include_once 'public/header.php';
 </div>
 
 <?php
+
 include_once 'public/footer.php';
 ?>

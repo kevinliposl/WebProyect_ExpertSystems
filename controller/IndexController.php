@@ -15,7 +15,6 @@ class IndexController {
      */
     function __construct() {
         $this->view = new View();
-        require_once 'model/IndexModel.php';
     }
 
     /**

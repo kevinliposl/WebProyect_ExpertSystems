@@ -4,7 +4,7 @@ include_once 'public/header.php';
 
 <script>
     (function () {
-        var element = document.getElementById("menu-remember-password");
+        var element = document.getElementById("menu-sign-in");
         element.classList.add("active");
     })();
 </script>

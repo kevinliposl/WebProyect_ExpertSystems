@@ -27,7 +27,7 @@ include_once 'public/header.php';
                             <input type="text" placeholder="Contraseña" required>
                         </div>
                         <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Ingrese su cuenta">
-                        <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Recordar Contraseña">
+                        <a class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" href="?action=rememberPassword">Recordar Contraseña</a>
                     </form>
                 </div>				
             </div>

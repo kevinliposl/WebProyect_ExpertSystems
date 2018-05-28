@@ -106,9 +106,9 @@ include_once 'public/header.php';
                 </div>
                 <div class="col-md-3">
                     <div class="hotels-block">
-                        <h4>Tipo</h4>
+                        <h4>Facilidades</h4>
                         <div class="input-style-1"> 
-                            <select multiple class="form-control">
+                            <select class="form-control">
                                 <option>No importa</option>
                                 <option>Apto para niños</option>
                                 <option>Bar</option>

@@ -3,12 +3,12 @@
 /**
  * @author <kevin.sandoval@ucr.ac.cr><brogudbarrientos@gmail.com>
  * @version 1.0
- * @copyright (c) 2018, Kevin Sandoval Loaiza b46549
+ * @copyright (c) 2018, Kevin Sandoval Loaiza b46549, Pablo Barrientos Brenes b40920
  * @access public
  * @category Model
- * Class IndexModel     
+ * Class UserModel     
  */
-class IndexModel {
+class UserModel {
 
     private $db;
 
@@ -22,12 +22,12 @@ class IndexModel {
 
     /**
      * @return array result
-     * function to select all enclosure style
+     * function *****************
      */
-    function selectAll() {
-        $query = $this->db->prepare("call sp_select_all_style()");
-        $query->execute();
-        $result = $query->fetchAll();
+    function signIn($user, $password) {
+        $query = $this->db->prepare("call sp_sign_in_user(:user,:password)");
+        $query->execute(array('user' => $user, 'password' => $password));
+        $result = $query->fetch();
         $query->closeCursor();
         return $result;
     }

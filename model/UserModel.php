@@ -24,9 +24,9 @@ class UserModel {
      * @return array result
      * function *****************
      */
-    function signIn($user, $password) {
-        $query = $this->db->prepare("call sp_sign_in_user(:user,:password)");
-        $query->execute(array('user' => $user, 'password' => $password));
+    function signIn($mail, $password) {
+        $query = $this->db->prepare("call sp_sign_in_user(:mail,:password);");
+        $query->execute(array('mail' => $mail, 'password' => $password));
         $result = $query->fetch();
         $query->closeCursor();
         return $result;

@@ -1,8 +1,11 @@
 <?php
-
-include_once 'public/header.php';
+$session = SSession::getInstance();
+if (isset($session->role)) {
+    header('location:?');
+} else {
+    include_once 'public/header.php';
+}
 ?>
-
 <script>
     (function () {
         var element = document.getElementById("menu-sign-up");

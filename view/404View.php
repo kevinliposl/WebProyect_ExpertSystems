@@ -1,13 +1,15 @@
 <?php
-include_once 'public/header.php';
+$session = SSession::getInstance();
+if (isset($session->role)) {
+    if ($session->role === "adm") {
+        include_once 'public/header_adm.php';
+    } else {
+        include_once 'public/header_usr.php';
+    }
+} else {
+    include_once 'public/header.php';
+}
 ?>
-
-<script>
-    (function () {
-        var element = document.getElementById("body");
-        element.classList.add("bg-dr-blue-2");
-    })();
-</script>
 
 <div class="not-found style-2">
     <div class="not-found-label">

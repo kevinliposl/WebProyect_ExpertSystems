@@ -1,6 +1,16 @@
 <?php
-include_once 'public/header.php';
+$session = SSession::getInstance();
+if (isset($session->role)) {
+    if ($session->role === "adm") {
+        include_once 'public/header_adm.php';
+    } else {
+        include_once 'public/header_usr.php';
+    }
+} else {
+    include_once 'public/header.php';
+}
 ?>
+
 <link href="public/css/DateTimePicker.min.css" rel="stylesheet" type="text/css" />
 
 <script>

@@ -1,7 +1,17 @@
 <?php
 
-include_once 'public/header.php';
+$session = SSession::getInstance();
+if (isset($session->role)) {
+    if ($session->role === "adm") {
+        header('location:?');
+    } else {
+        include_once 'public/header_usr.php';
+    }
+} else {
+    header('location:?');
+}
 ?>
+
 
 <script>
     (function () {

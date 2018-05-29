@@ -1,5 +1,15 @@
 <?php
-include_once 'public/header.php';
+
+$session = SSession::getInstance();
+if (isset($session->role)) {
+    if ($session->role === "adm") {
+        include_once 'public/header_adm.php';
+    } else {
+        header('location:?');
+    }
+} else {
+    header('location:?');
+}
 ?>
 
 <script>
@@ -54,4 +64,5 @@ include_once 'public/header.php';
 
 
 <?php
+
 include_once 'public/footer.php';

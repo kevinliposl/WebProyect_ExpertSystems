@@ -9,6 +9,7 @@
         <link href="public/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+        <script src="public/js/jquery.min.js"></script>
         <title>PK Tourism</title>
     </head>
     <body id="body" data-color="theme-1">

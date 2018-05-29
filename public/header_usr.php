@@ -57,6 +57,11 @@
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                     </li>
+                                    <li id="menu-sign-out" class="type-1">
+                                        <a href="?controller=User&action=signOut">Cerrar Sesión
+                                            <span class="fa fa-angle-down"></span>
+                                        </a>
+                                    </li>
                                 </ul> 
                             </nav>
                         </div>

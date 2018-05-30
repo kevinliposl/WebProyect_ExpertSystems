@@ -29,19 +29,19 @@ if (isset($session->role)) {
         <a data-lat="9.975480" data-lng="-83.690303" data-string="Monumento Nacional Guayabo"></a>
     </div>
     <div class="addresses-block">
-        <a data-lat="9.907419" data-lng="-83.684106" data-string="Avenida 6"></a>
+        <a data-lat="9.896695" data-lng="-83.738609" data-string="Restaurante El Clon"></a>
     </div>
     <div class="addresses-block">
-        <a data-lat="9.907419" data-lng="-83.684106" data-string="Avenida 6"></a>
+        <a data-lat="9.897604" data-lng="-83.781953" data-string="Bocadito del Cielo"></a>
     </div>
     <div class="addresses-block">
-        <a data-lat="9.907419" data-lng="-83.684106" data-string="Avenida 6"></a>
+        <a data-lat="9.863867" data-lng="-83.824541" data-string="Mirador Valle Nuevo. Bar y Restaurante"></a>
     </div>
     <div class="addresses-block">
-        <a data-lat="9.907419" data-lng="-83.684106" data-string="Avenida 6"></a>
+        <a data-lat="9.832540" data-lng="-83.804285" data-string="Hotel y Restaurante La Casona del Cafetal"></a>
     </div>
     <div class="addresses-block">
-        <a data-lat="9.907419" data-lng="-83.684106" data-string="Avenida 6"></a>
+        <a data-lat="9.884895" data-lng="-83.807375" data-string="Molinos de Viento"></a>
     </div>
 </div>
 
@@ -148,7 +148,7 @@ if (isset($session->role)) {
                             <strong class="color-red-3">&#162;1000</strong> / persona</h5>
                         <h6 class="color-grey-3">Turrialba, Cartago</h6>
                         <h4>
-                            <b>Bar Chavelo's</b>
+                            <b>Molinos de Viento</b>
                         </h4>
                         <p></p>
                         <div class="clearfix">
@@ -167,7 +167,7 @@ if (isset($session->role)) {
                             <strong class="color-red-3">&#162;1000</strong> / persona</h5>
                         <h6 class="color-grey-3">Turrialba, Cartago</h6>
                         <h4>
-                            <b>Bar Chavelo's</b>
+                            <b>Hotel y Restaurante La Casona del Cafetal</b>
                         </h4>
                         <p></p>
                         <div class="clearfix">
@@ -186,7 +186,7 @@ if (isset($session->role)) {
                             <strong class="color-red-3">&#162;1000</strong> / persona</h5>
                         <h6 class="color-grey-3">Turrialba, Cartago</h6>
                         <h4>
-                            <b>Bar Chavelo's</b>
+                            <b>Mirador Valle Nuevo. Bar y Restaurante</b>
                         </h4>
                         <p></p>
                         <div class="clearfix">
@@ -205,7 +205,7 @@ if (isset($session->role)) {
                             <strong class="color-red-3">&#162;1000</strong> / persona</h5>
                         <h6 class="color-grey-3">Turrialba, Cartago</h6>
                         <h4>
-                            <b>Bar Chavelo's</b>
+                            <b>Restaurante El Clon</b>
                         </h4>
                         <p></p>
                         <div class="clearfix">

@@ -60,11 +60,6 @@
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                     </li>
-                                    <li id="menu-contact" class="type-1">
-                                        <a href="?action=contact">Contáctenos
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
-                                    </li>
                                 </ul>
                             </nav>
                         </div>

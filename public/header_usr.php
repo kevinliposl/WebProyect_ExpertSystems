@@ -37,11 +37,6 @@
                             </div>
                             <nav class="menu">
                                 <ul>
-                                    <li id="menu-contact" class="type-1">
-                                        <a href="?action=contact">Contáctenos
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
-                                    </li>
                                     <li id="menu-destination-detail" class="type-1">
                                         <a href="?action=aboutUs">Sobre Nosotros
                                             <span class="fa fa-angle-down"></span>

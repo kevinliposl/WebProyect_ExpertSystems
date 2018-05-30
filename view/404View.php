@@ -11,6 +11,13 @@ if (isset($session->role)) {
 }
 ?>
 
+<script>
+    (function () {
+        var element = document.getElementById("body");
+        element.classList.add("bg-dr-blue-2");
+    })();
+</script>
+
 <div class="not-found style-2">
     <div class="not-found-label">
         <div class="not-found-number">

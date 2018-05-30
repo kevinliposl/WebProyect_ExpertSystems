@@ -30,14 +30,24 @@ if (isset($session->role)) {
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
                                 <div class="main-title">
-                                    <h1 class="color-white delay-1">¿D&oacute;nde te gustaría ir?</h1>
+                                    <h1 class="color-white delay-1">¿Buscas un destino?</h1>
                                 </div>
                             </div>
-                            <div class="col-lg-8 col-lg-offset-5 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
-                                <button style=""type="submit" class="c-button bg-dr-blue hv-transparent">
+                            <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
+                                <a class="main-title c-button bg-dr-blue hv-transparent" <?php
+                                if (SSession::getInstance()->__isset('role')) {
+                                    if ($session->role !== "adm") {
+                                        echo "href='?action=advancedSearch'";
+                                    } else {
+                                        echo "style='display:none;'";
+                                    }
+                                } else {
+                                    echo "href='?action=basicSearch'";
+                                }
+                                ?>>
                                     <img src="public/img/search_icon.png" alt="">
-                                    <span>¡Buscar ahora!</span>
-                                </button>
+                                    <span>¡Recomendar ahora!</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -47,14 +57,19 @@ if (isset($session->role)) {
         </div>
     </div>
 </div>
-
-<div class="main-wraper padd-90">
+<div class="main-wraper padd-90" <?php
+if (SSession::getInstance()->__isset('role')) {
+    if ($session->role === "adm") {
+        echo "style='display:none;'";
+    }
+}
+?>>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="second-title">
-                    <h2>popular hotels</h2>
-                    <p class="color-grey">Curabitur nunc erat, consequat in erat ut, congue bibendum nulla. Suspendisse id tor.</p>
+                    <h2>Destinos Populares</h2>
+                    <p class="color-grey">Lo que nuestros usuarios más han buscado.</p>
                 </div>
             </div>
         </div>
@@ -67,11 +82,11 @@ if (isset($session->role)) {
                             <div class="hotel-item">
                                 <div class="radius-top">
                                     <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
-                                    <div class="price price-s-1">$273</div>
+                                    <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>royal Hotel</b>
+                                        <b>Avenida 6</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
@@ -81,25 +96,23 @@ if (isset($session->role)) {
                                             <span class="fa fa-star color-yellow"></span>
                                             <span class="fa fa-star color-yellow"></span>
                                         </div>
-                                        <i>485 rewies</i>
+                                        <i>Visto 485</i>
                                     </div>
-                                    <span class="f-14 color-dark-2">2 Place de la Sans Défense, Puteaux</span>
-                                    <p class="f-14">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                    <a href="#" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">select</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr">
-                                        <img src="public/img/loc_icon_small_drak.png" alt="">view on map</a>
+                                    <span class="f-14 color-dark-2">Turrialba, Cartago</span>
+                                    <p class="f-14">Expertos en bebidas y postres.</p>
+                                    <a href="?action=destinationDetail" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Ver más</a>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="public/img/home_3/pop_hotel_2.jpg" alt="">
-                                    <div class="price price-s-1">$273</div>
+                                    <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
+                                    <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>sheraton Hotel</b>
+                                        <b>Avenida 6</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
@@ -109,25 +122,23 @@ if (isset($session->role)) {
                                             <span class="fa fa-star color-yellow"></span>
                                             <span class="fa fa-star color-yellow"></span>
                                         </div>
-                                        <i>485 rewies</i>
+                                        <i>Visto 485</i>
                                     </div>
-                                    <span class="f-14 color-dark-2">2 Place de la Sans Défense, Puteaux</span>
-                                    <p class="f-14">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                    <a href="#" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">select</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr">
-                                        <img src="public/img/loc_icon_small_drak.png" alt="">view on map</a>
+                                    <span class="f-14 color-dark-2">Turrialba, Cartago</span>
+                                    <p class="f-14">Expertos en bebidas y postres.</p>
+                                    <a href="?action=destinationDetail" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Ver más</a>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="public/img/home_3/pop_hotel_3.jpg" alt="">
-                                    <div class="price price-s-1">$273</div>
+                                    <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
+                                    <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>royal Hotel</b>
+                                        <b>Avenida 6</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
@@ -137,25 +148,23 @@ if (isset($session->role)) {
                                             <span class="fa fa-star color-yellow"></span>
                                             <span class="fa fa-star color-yellow"></span>
                                         </div>
-                                        <i>485 rewies</i>
+                                        <i>Visto 485</i>
                                     </div>
-                                    <span class="f-14 color-dark-2">2 Place de la Sans Défense, Puteaux</span>
-                                    <p class="f-14">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                    <a href="#" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">select</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr">
-                                        <img src="public/img/loc_icon_small_drak.png" alt="">view on map</a>
+                                    <span class="f-14 color-dark-2">Turrialba, Cartago</span>
+                                    <p class="f-14">Expertos en bebidas y postres.</p>
+                                    <a href="?action=destinationDetail" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Ver más</a>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="public/img/home_3/pop_hotel_4.jpg" alt="">
-                                    <div class="price price-s-1">$273</div>
+                                    <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
+                                    <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>sheraton Hotel</b>
+                                        <b>Avenida 6</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
@@ -165,13 +174,11 @@ if (isset($session->role)) {
                                             <span class="fa fa-star color-yellow"></span>
                                             <span class="fa fa-star color-yellow"></span>
                                         </div>
-                                        <i>485 rewies</i>
+                                        <i>Visto 485</i>
                                     </div>
-                                    <span class="f-14 color-dark-2">2 Place de la Sans Défense, Puteaux</span>
-                                    <p class="f-14">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                    <a href="#" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">select</a>
-                                    <a href="#" class="c-button color-dr-blue hv-o b-50 fr">
-                                        <img src="public/img/loc_icon_small_drak.png" alt="">view on map</a>
+                                    <span class="f-14 color-dark-2">Turrialba, Cartago</span>
+                                    <p class="f-14">Expertos en bebidas y postres.</p>
+                                    <a href="?action=destinationDetail" class="c-button bg-dr-blue hv-dr-blue-o b-50 fl">Ver más</a>
                                 </div>
                             </div>
                         </div>
@@ -190,5 +197,4 @@ if (isset($session->role)) {
 </div>
 
 <?php
-
 include_once 'public/footer.php';

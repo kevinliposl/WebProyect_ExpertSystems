@@ -4130,7 +4130,7 @@ ul.dot-blue-2 li:before { color: #022c54; }
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /* 13 - FOOTER */
 /*-------------------------------------------------------------------------------------------------------------------------------*/
-footer { position: relative; width: 100%; padding-top: 70px; overflow: hidden;}
+footer { position: relative; width: 100%; padding-top: 0px; overflow: hidden;}
 
 .instagram-wiget { position: relative; width: 100%; padding-right: 10px; }
 
@@ -4244,9 +4244,9 @@ footer.bg-white input:-ms-input-placeholder { color: #777777; opacity: 1; }
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /* 14 - FOOTER  TYPE-2*/
 /*-------------------------------------------------------------------------------------------------------------------------------*/
-footer.type-2 .footer-block h6 { padding-bottom: 24px; }
+footer.type-2 .footer-block h6 { padding-bottom: 0px; }
 
-footer.type-2 .footer-link { padding: 20px 0px 20px; }
+footer.type-2 .footer-link { padding: 00px 0px 20px; }
 
 footer.type-2 .f_logo { display: inline-block; position: relative; top: 3px; float: right;}
 
@@ -5115,7 +5115,7 @@ border-color: transparent transparent #222222 transparent; position: absolute; t
 .header-style-2 .nav-menu-icon {position: absolute; right: 0px;}
 .header-style-2.scrol .top-header-bar {padding: 0px;}
 
-.footer-style2  {background: #FCFCFC; padding: 50px 0px 0px;}
+.footer-style2  {background: #FCFCFC; padding: 0px 0px 0px;}
 .footer-style2 .footer-link {padding-bottom: 15px; display: inline-block;}
 .footer-style2 .footer-link a {font-weight: 400; color: #777; font-size: 14px; border-right: 1px solid #777; padding: 5px 13px; line-height: 14px; position: relative; overflow: hidden; display: block; float: left;}
 .footer-style2 .footer-link a:before {content:''; position: absolute; right: -100%; bottom: 0px; width: 100%; height: 1px; background: #777; transition: all 0.35s ease-in; -webkit-transition: all 0.35s ease-in;-moz-transition: all 0.35s ease-in;-ms-transition: all 0.35s ease-in;}

@@ -55,13 +55,6 @@ class IndexController {
     /**
      * 
      */
-    function contact() {
-        $this->view->show("contactView.php");
-    }
-
-    /**
-     * 
-     */
     function destinationDetail() {
         $this->view->show("destinationDetailView.php");
     }

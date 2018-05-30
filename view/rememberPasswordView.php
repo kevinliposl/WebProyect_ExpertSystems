@@ -1,5 +1,10 @@
 <?php
-include_once 'public/header.php';
+$session = SSession::getInstance();
+if (isset($session->role)) {
+    header('location:?');
+} else {
+    include_once 'public/header.php';
+}
 ?>
 
 <script>
@@ -21,7 +26,7 @@ include_once 'public/header.php';
                     </div>
                     <form class="f-login-form">
                         <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Correo Electronico" required>
+                            <input type="text" placeholder="Correo Electronico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                         </div>
                         <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Recordar al correo electronico">
                     </form>
@@ -31,7 +36,5 @@ include_once 'public/header.php';
     </div>
 </div>  
 
-
 <?php
-
 include_once 'public/footer.php';

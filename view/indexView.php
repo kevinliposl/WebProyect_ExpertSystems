@@ -74,12 +74,12 @@ if (SSession::getInstance()->__isset('role')) {
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
+                                    <img src="public/img/home_10/tour_2.jpg" alt="">
                                     <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>Avenida 6</b>
+                                        <b>Turrialtico</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
@@ -100,12 +100,12 @@ if (SSession::getInstance()->__isset('role')) {
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
+                                    <img src="public/img/home_10/tour_1.jpg" alt="">
                                     <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>Avenida 6</b>
+                                        <b>Turrialtico</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
@@ -126,12 +126,12 @@ if (SSession::getInstance()->__isset('role')) {
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
+                                    <img src="public/img/home_10/tour_2.jpg" alt="">
                                     <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>Avenida 6</b>
+                                        <b>Turrialtico</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">
@@ -152,12 +152,12 @@ if (SSession::getInstance()->__isset('role')) {
                         <div class="swiper-slide">
                             <div class="hotel-item">
                                 <div class="radius-top">
-                                    <img src="public/img/home_3/pop_hotel_1.jpg" alt="">
+                                    <img src="public/img/home_10/tour_1.jpg" alt="">
                                     <div class="price price-s-1">Desde &#162 1000</div>
                                 </div>
                                 <div class="title clearfix">
                                     <h4>
-                                        <b>Avenida 6</b>
+                                        <b>Turrialtico</b>
                                     </h4>
                                     <div class="rate-wrap">
                                         <div class="rate">

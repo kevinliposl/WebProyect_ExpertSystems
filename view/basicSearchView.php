@@ -124,7 +124,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde
@@ -143,7 +143,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde
@@ -162,7 +162,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde
@@ -181,7 +181,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde
@@ -202,7 +202,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde
@@ -221,7 +221,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde
@@ -240,7 +240,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde
@@ -259,7 +259,7 @@ if (isset($session->role)) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="hotel-item style-7">
                     <div class="radius-top">
-                        <img src="public/img/home_10/tour_1.jpg" alt="">
+                        <img src="public/img/home_10/tour_2.jpg" alt="">
                     </div>
                     <div class="title">
                         <h5>Servicios desde

@@ -83,7 +83,7 @@ if (isset($session->role)) {
                         <h4 class="color-dark-2">Historial</h4>
                         <div class="hotel-small style-2 clearfix">
                             <a class="hotel-img black-hover" href="#">
-                                <img class="img-responsive radius-0" src="public/img/home_9/cruise_1.jpg" alt="">
+                                <img class="img-responsive radius-0" src="public/img/home_10/tour_1.jpg" alt="">
                                 <div class="tour-layer delay-1"></div>        						
                             </a>
                             <div class="hotel-desc">
@@ -94,7 +94,7 @@ if (isset($session->role)) {
                         </div>
                         <div class="hotel-small style-2 clearfix">
                             <a class="hotel-img black-hover" href="#">
-                                <img class="img-responsive radius-0" src="public/img/home_9/cruise_2.jpg" alt="">
+                                <img class="img-responsive radius-0" src="public/img/home_10/tour_2.jpg" alt="">
                                 <div class="tour-layer delay-1"></div>        						
                             </a>
                             <div class="hotel-desc">
@@ -105,7 +105,7 @@ if (isset($session->role)) {
                         </div>
                         <div class="hotel-small style-2 clearfix">
                             <a class="hotel-img black-hover" href="#">
-                                <img class="img-responsive radius-0" src="public/img/home_9/cruise_3.jpg" alt="">
+                                <img class="img-responsive radius-0" src="public/img/home_10/tour_2.jpg" alt="">
                                 <div class="tour-layer delay-1"></div>        						
                             </a>
                             <div class="hotel-desc">

@@ -8,7 +8,7 @@
                         <li><a class="color-white link-red" href="?action=aboutUs">Quienes Somos</a></li>
                     </ul>
                     <div class="copyright">
-                        <span class="color-grey-6">&copy; 2018 Todos los derechos reservados.</span>
+                        <span class="color-grey-7">&copy; 2018 Todos los derechos reservados.</span>
                     </div>
                 </div>
             </div>

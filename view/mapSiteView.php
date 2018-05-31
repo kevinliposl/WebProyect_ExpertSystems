@@ -13,7 +13,7 @@ if (isset($session->role)) {
 
 <script>
     (function () {
-        document.getElementById("menu-about-us").classList.add("active");
+        document.getElementById("menu-map").classList.add("active");
     })();
 </script>
 

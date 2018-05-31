@@ -59,7 +59,7 @@
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                     </li>
-                                    <li id="menu-about-us" class="type-1">
+                                    <li id="menu-map" class="type-1">
                                         <a href="?action=map">Mapa del Sitio
                                             <span class="fa fa-angle-down"></span>
                                         </a>

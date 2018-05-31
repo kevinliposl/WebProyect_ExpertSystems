@@ -37,18 +37,18 @@
                             </div>
                             <nav class="menu">
                                 <ul>
-                                    <li id="menu-about-us" class="type-1">
-                                        <a href="?action=aboutUs">Sobre Nosotros
-                                            <span class="fa fa-angle-down"></span>
-                                        </a>
-                                    </li>
                                     <li id="menu-advanced-search" class="type-1">
-                                        <a href="?action=advancedSearch">B&uacute;squeda
+                                        <a href="?action=advancedSearch">B&uacute;scar
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                     </li>
                                     <li id="menu-profile-user" class="type-1">
                                         <a href="?action=profileUser">Perfil
+                                            <span class="fa fa-angle-down"></span>
+                                        </a>
+                                    </li>
+                                    <li id="menu-about-us" class="type-1">
+                                        <a href="?action=aboutUs">Sobre Nosotros
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                     </li>

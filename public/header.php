@@ -40,7 +40,7 @@
                             <nav class="menu">
                                 <ul>
                                     <li id="menu-basic-search" class="type-1">
-                                        <a href="?action=basicSearch">B&uacute;squedar
+                                        <a href="?action=basicSearch">B&uacute;scar
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                     </li>

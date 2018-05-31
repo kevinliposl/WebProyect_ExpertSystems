@@ -20,6 +20,13 @@ class IndexController {
     /**
      * 
      */
+    function map() {
+        $this->view->show("mapSiteView.php");
+    }
+
+    /**
+     * 
+     */
     function defaultAction() {
         $this->view->show("indexView.php");
     }

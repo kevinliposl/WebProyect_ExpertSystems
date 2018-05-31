@@ -17,20 +17,13 @@ if (isset($session->role)) {
     })();
 </script>
 
-<div class="map-block">
-    <div id="map-canvas" class="style-4" data-lat="9.903737" data-lng="-83.670832" data-zoom="10" data-style="2"></div>
-    <div class="addresses-block">
-        <a data-lat="9.903737" data-lng="-83.670832" data-string="Universidad de Costa Rica, Sede del Atlántico, Turrialba, Cartago"></a>
-    </div>
-</div>
-
 <div class="main-wraper">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                 <div class="second-title">
-                    <h4 class="subtitle color-dr-blue-2 underline">Informaci&oacute;n de Contacto</h4>
-                    <h2>Toca para obtener</h2>
+                    <h4>Mapa del Sitio</h4>
+                    <img class="image" src="public/img/mapa.png" alt="">
                 </div>
             </div>
         </div>

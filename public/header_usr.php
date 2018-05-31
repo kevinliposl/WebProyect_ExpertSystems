@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-        <link href="public/img/favicon.ico" rel="shortcut icon" />
         <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="public/css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
         <link href="public/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+        <script src="public/js/jquery.min.js"></script>
         <title>PK Tourism</title>
     </head>
     <body id="body" data-color="theme-1">
@@ -37,7 +37,7 @@
                             </div>
                             <nav class="menu">
                                 <ul>
-                                    <li id="menu-destination-detail" class="type-1">
+                                    <li id="menu-about-us" class="type-1">
                                         <a href="?action=aboutUs">Sobre Nosotros
                                             <span class="fa fa-angle-down"></span>
                                         </a>

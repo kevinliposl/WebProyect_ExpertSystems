@@ -13,8 +13,7 @@ if (isset($session->role)) {
 
 <script>
     (function () {
-        var element = document.getElementById("menu-about-us");
-        element.classList.add("active");
+        document.getElementById("menu-about-us").classList.add("active");
     })();
 </script>
 
@@ -39,14 +38,14 @@ if (isset($session->role)) {
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="contact-entry">
-                        <img class="contact-icon" src="img/loc_icon_2_dark.png" alt="">
+                        <img class="contact-icon" src="public/img/loc_icon_2_dark.png" alt="">
                         <div class="contact-label color-grey-3">Dirección:</div>
                         <div class="contact-text color-dark-2">Universidad de Costa Rica, Sede del Atlántico,<br> Provincia de Cartago, Turrialba</div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="contact-entry">
-                        <img class="contact-icon" src="img/mail_icon_l_dark.png" alt="">
+                        <img class="contact-icon" src="public/img/mail_icon_l_dark.png" alt="">
                         <div class="contact-label color-grey-3">Correo Electrónico:</div>
                         <a class="contact-text color-dark-2 link-dr-blue-2" href="mailto:kevinliposl@gmail.com&brogudbarrientos@gmail.com">kevinliposl@gmail.com <br> brogudbarrientos@gmail.com</a>
                     </div>

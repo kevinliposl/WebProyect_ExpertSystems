@@ -8,8 +8,7 @@ if (isset($session->role)) {
 ?>
 <script>
     (function () {
-        var element = document.getElementById("menu-basic-search");
-        element.classList.add("active");
+        $("#menu-basic-search").addClass("active");
     })();
 </script>
 
@@ -48,69 +47,57 @@ if (isset($session->role)) {
                 <div class="col-md-12">
                     <div class="hotels-block">
                         <h4>Localización</h4>
-                        <div class="input-style-1">
+                        <div class="ui-widget input-style-1">
                             <img src="public/img/loc_icon_small_grey.png" alt="">
-                            <input type="text" placeholder="Destino" required>
+                            <input  type="text" placeholder="Destino" required>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="hotels-block">
                         <h4>Atracción</h4>
                         <div class="input-style-1"> 
                             <select class="form-control">
                                 <option>No importa</option>
+                                <option>Parques Nacionales</option>
+                                <option>Ruinas y Lugares Históricos</option>
+                                <option>Galerías y Museos</option>
+                                <option>Jardines botánicos y zoológicos</option>
+                                <option>Miradores</option>
                                 <option>Hotel</option>
                                 <option>Restaurante</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="hotels-block">
                         <h4>Tipo</h4>
                         <div class="input-style-1"> 
                             <select class="form-control">
                                 <option>No importa</option>
-                                <option>Hotel</option>
-                                <option>Restaurante</option>
+                                <option>Rural</option>
+                                <option>Urbana</option>
+                                <option>Costera</option>
+                                <option>De Montaña</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="hotels-block">
                         <h4>Calificación</h4>
                         <div class="input-style-1"> 
                             <select class="form-control">
                                 <option>No importa</option>
-                                <option>Hotel</option>
-                                <option>Restaurante</option>
+                                <option>Una Estrella</option>
+                                <option>Dos Estrella</option>
+                                <option>Tres Estrella</option>
+                                <option>Cuatro Estrella</option>
+                                <option>Cinco Estrella</option>
                             </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="hotels-block">
-                        <h4>Facilidades</h4>
-                        <div class="input-style-1"> 
-                            <select class="form-control">
-                                <option>No importa</option>
-                                <option>Apto para niños</option>
-                                <option>Bar</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="range-wrapp">
-                        <h4>Rango de Precios</h4>
-                        <div class="slider-range" data-counter="$" data-position="start" data-from="0" data-to="5000" data-min="0" data-max="5000">
-                            <div class="range"></div>
-                            <input type="text" class="amount-start" readonly value="$0">
-                            <input type="text" class="amount-end" readonly value="$1500">
                         </div>
                     </div>
                 </div>
@@ -122,14 +109,14 @@ if (isset($session->role)) {
             </div>
         </div>
     </form>
-</div>
+</div>  
 
 <div class="main-wraper hotel-items">
     <div class="container">
-        <div class="row" style="padding-top: 50px;">
+        <div class="row" style="padding-top: 20px;">
             <div class="col-md-12">
                 <div class="second-title">
-                    <h2>Búsqueda (8)</h2>
+                    <h2>Resultados (8)</h2>
                 </div>
             </div>
         </div>

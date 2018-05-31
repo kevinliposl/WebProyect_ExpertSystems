@@ -1,4 +1,5 @@
 <?php
+
 $session = SSession::getInstance();
 if (isset($session->role)) {
     if ($session->role === "adm") {
@@ -13,8 +14,7 @@ if (isset($session->role)) {
 
 <script>
     (function () {
-        var element = document.getElementById("body");
-        element.classList.add("bg-dr-blue-2");
+        $("#body").addClass("bg-dr-blue-2");
     })();
 </script>
 
@@ -31,4 +31,5 @@ if (isset($session->role)) {
 </div>
 
 <?php
+
 include_once 'public/footer.php';

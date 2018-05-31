@@ -1,4 +1,5 @@
 <?php
+
 $session = SSession::getInstance();
 if (isset($session->role)) {
     header('location:?');
@@ -8,15 +9,13 @@ if (isset($session->role)) {
 ?>
 <script>
     (function () {
-        var element = document.getElementById("menu-sign-up");
-        element.classList.add("active");
+        $("#menu-sign-up").addClass("active");
     })();
 </script>
 
 <div class="container">
     <div class="login-fullpage">                                                                            
         <div class="row">
-            <div class="login-logo"><img class="center-image" src="img/special/login.jpg" alt=""></div>
             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
                 <div class="f-login-content">
                     <div class="f-login-header">
@@ -54,7 +53,6 @@ if (isset($session->role)) {
         </div>
     </div>
 </div>  
-
 
 <?php
 

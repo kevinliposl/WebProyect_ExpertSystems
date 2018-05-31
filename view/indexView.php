@@ -11,13 +11,6 @@ if (isset($session->role)) {
 }
 ?>
 
-<script>
-    (function () {
-        var element = document.getElementById("menu-index");
-        element.classList.add("active");
-    })();
-</script>
-
 <div class="top-baner swiper-animate arrows">
     <div class="swiper-container main-slider-3 h-143" data-autoplay="0" data-loop="0" data-speed="500" data-center="" data-slides-per-view="1">
         <div class="swiper-wrapper">
@@ -68,7 +61,7 @@ if (SSession::getInstance()->__isset('role')) {
         <div class="row">
             <div class="col-md-12">
                 <div class="second-title">
-                    <h2>Destinos Populares</h2>
+                    <h2>Destinos Recomendados</h2>
                     <p class="color-grey">Lo que nuestros usuarios más han buscado.</p>
                 </div>
             </div>

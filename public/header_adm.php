@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-        <link href="public/img/favicon.ico" rel="shortcut icon" />
         <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="public/css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
         <link href="public/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+        <script src="public/js/jquery.min.js"></script>
         <title>PK Tourism</title>
     </head>
     <body id="body" data-color="theme-1">
@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <div class="nav">
                             <a href="?" class="logo">
-                                <img style="margin-top: 5px;" src="public/img/logo.png" alt="lets travel">
+                                <img style="margin-top: 5px;" src="public/img/logo.png">
                             </a>
                             <div class="nav-menu-icon">
                                 <a href="#">
@@ -37,7 +37,7 @@
                             </div>
                             <nav class="menu">
                                 <ul>
-                                    <li id="menu-user"class="type-1"><a href="#">Destino<span class="fa fa-angle-down"></span></a>
+                                    <li id="menu-destination" class="type-1"><a href="#">Destino</a>
                                         <ul class="dropmenu">
                                             <li><a href="?action=insertDestiny">Registrar</a></li>
                                             <li><a href="?action=updateDestiny">Actualizar</a></li>

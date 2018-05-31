@@ -13,8 +13,7 @@ if (isset($session->role)) {
 
 <script>
     (function () {
-        var element = document.getElementById("menu-advanced-search");
-        element.classList.add("active");
+        document.getElementById("menu-advanced-search").classList.add("active");
     })();
 </script>
 
@@ -108,7 +107,7 @@ if (isset($session->role)) {
                 </div>
                 <div class="col-md-3">
                     <div class="form-group hotels-block">
-                        <h4>Facilidades</h4>
+                        <h4>Facilidades y Servicios</h4>
                         <div class="input-style-1"> 
                             <select multiple class="form-control">
                                 <option>No importa</option>
@@ -155,7 +154,7 @@ if (isset($session->role)) {
         <div class="row" style="padding-top: 50px;">
             <div class="col-md-12">
                 <div class="second-title">
-                    <h2>Búsqueda (8)</h2>
+                    <h2>Resultados (8)</h2>
                 </div>
             </div>
         </div>

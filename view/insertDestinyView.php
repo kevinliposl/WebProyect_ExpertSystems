@@ -71,7 +71,7 @@ if (isset($session->role)) {
                         </select>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="text" placeholder="Lozalizaci&oacute;n" required/>
+                        <input class="form-control" type="text" placeholder="Localizaci&oacute;n" required/>
                     </div>
                     <div class="input-style-2 form-group">
                         <input class="form-control" type="number" placeholder="Precio" required/>

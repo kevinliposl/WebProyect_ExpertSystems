@@ -32,4 +32,16 @@ class UserModel {
         return $result;
     }
 
+    /**
+     * @return array result
+     * function *****************
+     */
+    function signUp($mail, $password, $name, $lastname, $style) {
+        $query = $this->db->prepare("call sp_sign_up_user(:mail,:password,:name,:lastname,:style);");
+        $query->execute(array('mail' => $mail, 'password' => $password, 'name' => $name, 'lastname' => $lastname, 'style' => $style));
+        $result = $query->fetch();
+        $query->closeCursor();
+        return $result;
+    }
+
 }

@@ -21,41 +21,91 @@ if (isset($session->role)) {
 <div class="container">
     <div class="login-fullpage">                                                                            
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
-                <div class="f-login-content">
-                    <div class="f-login-header">
-                        <div class="f-login-title color-dr-blue-2">¡Registrar Destino!</div>
-                        <div class="f-login-desc color-grey">Por favor ingrese los datos solicitados!</div>
+            <div class="col-lg-6 col-lg-offset-3 col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                <div class="f-login-header">
+                    <div class="f-login-title color-dr-blue-2">¡Registrar Destino!</div>
+                    <div class="f-login-desc color-grey">Por favor ingrese los datos solicitados!</div>
+                </div>
+                <form class="f-login-form" onsubmit="return send(); return false;">
+                    <div class="input-style-2 form-group">
+                        <input class="form-control" type="text" placeholder="Nombre" required>
                     </div>
-                    <form class="f-login-form">
-                        <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Atracción" required>
-                        </div>
-                        <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Zona" required>
-                        </div>
-                        <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Latitud" required>
-                        </div>
-                        <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Longitud" required>
-                        </div>
-                        <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Enlace Multimedia" required>
-                        </div>
-                        <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Precio" required>
-                        </div>
-                        <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Lista de Servicios" required>
-                        </div>
-                        <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrar">
-                    </form>
-                </div>				
-            </div>
+                    <div  class="input-style-2 form-group"> 
+                        <select class="form-control">
+                            <option disabled selected>Atracci&oacute;n</option>
+                            <option>Parques Nacionales</option>
+                            <option>Ruinas y Lugares Históricos</option>
+                            <option>Galerías y Museos</option>
+                            <option>Jardines botánicos y zoológicos</option>
+                            <option>Miradores</option>
+                            <option>Hotel</option>
+                            <option>Restaurante</option>
+                        </select>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <select class="form-control">
+                            <option disabled selected>Tipo</option>
+                            <option>Rural</option>
+                            <option>Urbana</option>
+                            <option>Costera</option>
+                            <option>De Montaña</option>
+                        </select>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <select class="form-control">
+                            <option disabled selected>Facilidades</option>
+                            <option>Televisión por cable</option>
+                            <option>Teléfono</option>
+                            <optgroup label="Acceso">
+                                <option>Facil</option>
+                                <option>Medio</option>
+                                <option>Dificil</option>
+                            </optgroup>
+                            <option>Internet</option>
+                            <option>Bar</option>
+                            <option>Restaurante</option>
+                            <option>Transporte</option>
+                            <option>Hospedaje</option>
+                            <option>Espacio para niños</option>
+                            <option>Asistencia</option>                        
+                        </select>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input class="form-control" type="text" placeholder="Lozalizaci&oacute;n" required/>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input class="form-control" type="number" placeholder="Precio" required/>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input class="form-control" type="number" placeholder="Latitud" required/>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input class="form-control" type="number" placeholder="Longitud" required/>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input class="form-control" type="text" placeholder="Enlace Video" required/>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input class="form-control" type="text" placeholder="Enlace Imagen" required/>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input type="submit" class="form-control login-btn c-button full b-50 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrar"/>
+                    </div>
+                </form>
+            </div>				
         </div>
     </div>
 </div>  
 
+<script>
+
+    function send() {
+
+
+    }
+
+</script>
+
 <?php
+
 include_once 'public/footer.php';

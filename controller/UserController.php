@@ -28,7 +28,7 @@ class UserController {
             $this->onSession($result['result'], $_POST['mail'], $result['role']);
             echo json_encode(array('result' => $result['result']));
         } else {
-            echo json_encode(array('result' => 0000000));
+            echo json_encode(array('result' => 0));
         }
     }
 

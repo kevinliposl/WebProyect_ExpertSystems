@@ -44,4 +44,28 @@ class UserModel {
         return $result;
     }
 
+    /**
+     * @return array result
+     * function *****************
+     */
+    function selectUser($mail) {
+        $query = $this->db->prepare("call sp_select_user(:mail);");
+        $query->execute(array('mail' => $mail));
+        $result = $query->fetch();
+        $query->closeCursor();
+        return $result;
+    }
+
+    /**
+     * @return array result
+     * function *****************
+     */
+    function updateUser($mail, $password, $name, $lastname, $style) {
+        $query = $this->db->prepare("call sp_update_user(:mail,:password,:name,:lastname,:style);");
+        $query->execute(array('mail' => $mail, 'password' => $password, 'name' => $name, 'lastname' => $lastname, 'style' => $style));
+        $result = $query->fetch();
+        $query->closeCursor();
+        return $result;
+    }
+
 }

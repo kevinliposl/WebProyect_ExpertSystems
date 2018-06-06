@@ -54,13 +54,9 @@ if (isset($session->role)) {
                     <div class="input-style-2 form-group">
                         <select class="form-control">
                             <option disabled selected>Facilidades</option>
+                            <?php   ?>
                             <option>Televisión por cable</option>
                             <option>Teléfono</option>
-                            <optgroup label="Acceso">
-                                <option>Facil</option>
-                                <option>Medio</option>
-                                <option>Dificil</option>
-                            </optgroup>
                             <option>Internet</option>
                             <option>Bar</option>
                             <option>Restaurante</option>

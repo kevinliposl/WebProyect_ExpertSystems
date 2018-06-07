@@ -19,7 +19,7 @@ class AppDestinyController {
         $this->view = new View();
         require_once 'model/DestinyModel.php';
 
-        $this->distance = 0.35;
+        $this->distance = 0.3;
         $this->recommendation = array();
     }
 
@@ -32,7 +32,7 @@ class AppDestinyController {
 
         for ($i = 0; $i < $length; $i++) {
             if (is_string($arrayA[$i])) {
-                $distance += levenshtein($arrayA[$i], $arrayB[$i]) == 0 ? 0 : rand(1, 5);
+                $distance += levenshtein($arrayA[$i], $arrayB[$i]) == 0 ? 0 : 1;
             } else {
                 $distance += pow(($arrayA[$i] - $arrayB[$i]), 2);
             }

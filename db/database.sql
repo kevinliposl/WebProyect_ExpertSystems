@@ -29,9 +29,9 @@ CREATE TABLE tb_user(
 );
 
 INSERT INTO tb_user(user_mail,user_password,user_name,user_lastname,user_style,role_id) VALUES
-	('adm@adm.com','1234','admin','admin','Aventurero',1),
-	('pablo@pablo.com','1234','Pablo','Barrientos','Conservador',2),
-	('kevinliposl@gmail.com','1234','Kevin','Sandoval','Investigador',2);
+	('adm@adm.com','1234','admin','admin','aventurero',1),
+	('pablo@pablo.com','1234','Pablo','Barrientos','conservador',2),
+	('kevinliposl@gmail.com','1234','Kevin','Sandoval','investigador',2);
 
 /*TIPO - GEOGRAFIA DONDE SE LOCALIZA*/
 CREATE TABLE tb_type(

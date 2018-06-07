@@ -27,7 +27,7 @@ class AppUserController {
         if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
             $model = new UserModel;
             $result = $model->signIn($_REQUEST['mail'], $_REQUEST['password']);
-            echo json_encode(array('result' => $result));
+            echo json_encode(array('result' => $this->clearArray($result)));
         } else {
             echo json_encode(array('result' => 0));
         }
@@ -63,7 +63,6 @@ class AppUserController {
     }
 
     /**
-     * 
      * ?controller=AppUser&action=selectUser
      * Funcion para seleccionar usuario 
      */
@@ -71,10 +70,17 @@ class AppUserController {
         if (isset($_REQUEST['mail'])) {
             $model = new UserModel;
             $result = $model->selectUser($_REQUEST['mail']);
-            echo json_encode(array('result' => $result));
+            echo json_encode(array('result' => $this->clearArray($result)));
         } else {
             echo json_encode(array('result' => 0));
         }
+    }
+
+    function clearArray($array = array()) {
+        for ($j = 0; $j < count($array); $j++) {
+            unset($array[$j]);
+        }
+        return $array;
     }
 
 }

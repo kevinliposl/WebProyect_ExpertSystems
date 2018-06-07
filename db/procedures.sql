@@ -4,7 +4,7 @@ mail_tmp VARCHAR(255),
 password_tmp VARCHAR(255)
 )
 BEGIN
-	IF EXISTS(SELECT * FROM tb_user WHERE user_mail = mail_tmp AND user_password = password_tmp)THEN
+	IF EXISTS(SELECT * FROM tb_user WHERE trim(user_mail) = trim(mail_tmp) AND trim(user_password) = trim(password_tmp))THEN
 		SELECT 1 as result, r.role_name as role, s.user_id as id, s.user_name as name, s.user_lastname as lastname, s.user_style as style 
         FROM tb_user s INNER JOIN tb_role r ON s.role_id= r.role_id 
         WHERE s.user_mail= mail_tmp AND s.user_password = password_tmp; 
@@ -14,20 +14,23 @@ BEGIN
 END $$
 DELIMITER ;
 
--- CALL sp_sign_up_user('kevin_dmsk8@hotmail.com','Kevin','Sandoval','1234','Conservador');
+ -- CALL sp_sign_in_user('brogudbarrientos@gmail.com','b');
+
+-- CALL sp_sign_up_user('bbbbarrientos@hotmail.com','Kevin','Sandoval','1234','Conservador');
 
 DELIMITER $$
 CREATE PROCEDURE sp_sign_up_user(
 mail_tmp VARCHAR(255),
+password_tmp VARCHAR(255),
 name_tmp VARCHAR(255),
 lastname_tmp VARCHAR (255),
-password_tmp VARCHAR(255),
 style_tmp VARCHAR(255)
 )
 BEGIN
 	IF NOT EXISTS(SELECT * FROM tb_user WHERE user_mail = mail_tmp)THEN
-		INSERT INTO tb_user(user_mail,user_password,user_name,user_lastname,user_style,role_id) VALUES
-		(mail_tmp,password_tmp,name_tmp,lastname_tmp,style_tmp,2);
+        INSERT INTO tb_user(user_mail, user_password, user_name, user_lastname, user_style,role_id) 
+        VALUES (trim(mail_tmp), trim(password_tmp),trim(name_tmp),trim(lastname_tmp), trim(LOWER(style_tmp)),2);
+        
         SELECT 1 as result;
     ELSE
 		SELECT 0 as result;
@@ -92,13 +95,15 @@ BEGIN
 END $$
 DELIMITER ; 
 
+-- DROP PROCEDURE sp_select_all_destination;
+
 DELIMITER $$
 CREATE PROCEDURE sp_select_all_destination(
 )
 BEGIN
-	SELECT destination_id id, destination_name name, destination_location location, destination_attraction_id attraction, destination_stars stars, type_name type,
+	SELECT destination_id id, destination_name name, destination_location location, attraction_name attraction, destination_stars stars, type_name type,
 	destination_description description, destination_url_video url_video, destination_url_photo url_photo, destination_latitude latitude, destination_longitude longitude,
-    attraction_name
+    attraction_name, destination_price price
     FROM tb_destination INNER JOIN tb_type ON destination_type_id = type_id INNER JOIN tb_attraction ON attraction_id = destination_attraction_id
     ORDER BY destination_id asc;
 END $$

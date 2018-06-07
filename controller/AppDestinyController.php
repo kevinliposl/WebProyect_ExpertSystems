@@ -19,7 +19,7 @@ class AppDestinyController {
         $this->view = new View();
         require_once 'model/DestinyModel.php';
 
-        $this->distance = 0;
+        $this->distance = 0.35;
         $this->recommendation = array();
     }
 
@@ -32,7 +32,7 @@ class AppDestinyController {
 
         for ($i = 0; $i < $length; $i++) {
             if (is_string($arrayA[$i])) {
-                $distance += levenshtein($arrayA[$i], $arrayB[$i]);
+                $distance += levenshtein($arrayA[$i], $arrayB[$i]) == 0 ? 0 : rand(1, 5);
             } else {
                 $distance += pow(($arrayA[$i] - $arrayB[$i]), 2);
             }
@@ -54,7 +54,6 @@ class AppDestinyController {
                 $arrayB = array($var['location'], $var['attraction'], $var['type'], $var['stars']);
                 $tmp = $this->distanceEuclidean($arrayA, $arrayB);
                 if ($tmp >= $this->distance) {
-                    $this->distance = $tmp;
                     if (count($this->recommendation) <= 6) {
                         $facilities = $model->selectFacilities($var['id']);
                         $clear = $this->clearArray($facilities);
@@ -80,12 +79,11 @@ class AppDestinyController {
         if (isset($_REQUEST['style']) && isset($_REQUEST['price']) && isset($_REQUEST['location']) && isset($_REQUEST['attraction']) && isset($_REQUEST['type']) && isset($_REQUEST['stars'])) {
             $model = new DestinyModel;
             $vars = $model->selectAll();
-            $arrayA = array($_REQUEST['style'], $_REQUEST['price'], $_REQUEST['location'], $_REQUEST['attraction'], $_REQUEST['type'], $_REQUEST['stars']);
+            $arrayA = array($_REQUEST['price'], $_REQUEST['location'], $_REQUEST['attraction'], $_REQUEST['type'], $_REQUEST['stars']);
             foreach ($vars as $var) {
-                $arrayB = array($var['location'], $var['attraction'], $var['type'], $var['stars']);
+                $arrayB = array($var['price'], $var['location'], $var['attraction'], $var['type'], $var['stars']);
                 $tmp = $this->distanceEuclidean($arrayA, $arrayB);
                 if ($tmp >= $this->distance) {
-                    $this->distance = $tmp;
                     if (count($this->recommendation) <= 6) {
                         $facilities = $model->selectFacilities($var['id']);
                         $clear = $this->clearArray($facilities);

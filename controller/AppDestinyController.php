@@ -53,30 +53,62 @@ class AppDestinyController {
             foreach ($vars as $var) {
                 $arrayB = array($var['location'], $var['attraction'], $var['type'], $var['stars']);
                 $tmp = $this->distanceEuclidean($arrayA, $arrayB);
-                if ($tmp > $this->distance) {
+                if ($tmp >= $this->distance) {
                     $this->distance = $tmp;
-                    if (count($this->recommendation) <= 5) {
+                    if (count($this->recommendation) <= 6) {
+                        $facilities = $model->selectFacilities($var['id']);
+                        $clear = $this->clearArray($facilities);
+                        foreach ($clear as $t) {
+                            array_push($var, $clear);
+                        }
                         array_push($this->recommendation, $var);
                     }
                 }
             }
-            echo json_encode($this->recommendation);
+            echo json_encode($this->clearArray($this->recommendation));
         } else {
             echo json_encode(array('result' => 0));
         }
     }
 
     /**
+     * http://localhost/WebProject_ExpertSystems_B49020_B46549/?controller=AppDestiny&action=advancedSearch&location=Puntarenas&attraction=1&type=2&stars=2
+     * 
      * Funcion para busqueda avanzada 
      */
     function advancedSearch() {
-        if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
-            $model = new UserModel;
-            $result = $model->signIn($_POST['mail'], $_POST['password']);
-            $this->onSession($result['result'], $_POST['mail'], $result['role']);
-            echo json_encode(array('result' => $result['result']));
+        if (isset($_REQUEST['style']) && isset($_REQUEST['price']) && isset($_REQUEST['location']) && isset($_REQUEST['attraction']) && isset($_REQUEST['type']) && isset($_REQUEST['stars'])) {
+            $model = new DestinyModel;
+            $vars = $model->selectAll();
+            $arrayA = array($_REQUEST['style'], $_REQUEST['price'], $_REQUEST['location'], $_REQUEST['attraction'], $_REQUEST['type'], $_REQUEST['stars']);
+            foreach ($vars as $var) {
+                $arrayB = array($var['location'], $var['attraction'], $var['type'], $var['stars']);
+                $tmp = $this->distanceEuclidean($arrayA, $arrayB);
+                if ($tmp >= $this->distance) {
+                    $this->distance = $tmp;
+                    if (count($this->recommendation) <= 6) {
+                        $facilities = $model->selectFacilities($var['id']);
+                        $clear = $this->clearArray($facilities);
+                        foreach ($clear as $t) {
+                            array_push($var, $clear);
+                        }
+                        array_push($this->recommendation, $var);
+                    }
+                }
+            }
+            echo json_encode($this->clearArray($this->recommendation));
         } else {
             echo json_encode(array('result' => 0));
         }
     }
+
+    function clearArray($array = array()) {
+        for ($j = 0; $j < count($array); $j++) {
+            for ($i = 0; $i < count($array[$j]); $i++) {
+                unset($array[$j][$i]);
+            }
+        }
+        return $array;
+    }
+
 }

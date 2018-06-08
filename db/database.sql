@@ -15,6 +15,18 @@ VALUES('adm');
 INSERT INTO tb_role (role_name)
 VALUES('usr');
 
+/* ESTILO */
+CREATE TABLE tb_style(
+	style_id INTEGER AUTO_INCREMENT,
+	style_name VARCHAR(255) UNIQUE NOT NULL,
+	CONSTRAINT PRIMARY KEY(style_id)
+);
+
+INSERT INTO tb_style(style_name) VALUES
+	('Conservador'),
+	('Investigador'),
+	('Aventurero');
+
 /* USUARIOS */
 CREATE TABLE tb_user(
 	user_id INTEGER AUTO_INCREMENT,
@@ -22,18 +34,19 @@ CREATE TABLE tb_user(
     user_password VARCHAR(255)  NOT NULL,
     user_name VARCHAR(255) NOT NULL,
     user_lastname VARCHAR(255)  NOT NULL,
-    user_style VARCHAR(255) NOT NULL,
+    user_style INTEGER NOT NULL,
 	role_id INTEGER NOT NULL,
 	CONSTRAINT PRIMARY KEY(user_id,role_id),
+    CONSTRAINT FOREIGN KEY(user_style) REFERENCES tb_style(style_id),
     CONSTRAINT FOREIGN KEY(role_id) REFERENCES tb_role(role_id)
 );
 
 INSERT INTO tb_user(user_mail,user_password,user_name,user_lastname,user_style,role_id) VALUES
-	('adm@adm.com','1234','admin','admin','aventurero',1),
-	('pablo@pablo.com','1234','Pablo','Barrientos','conservador',2),
-	('kevinliposl@gmail.com','1234','Kevin','Sandoval','investigador',2);
+	('adm@adm.com','1234','admin','admin',3,1),
+	('pablo@pablo.com','1234','Pablo','Barrientos',1,2),
+	('kevinliposl@gmail.com','1234','Kevin','Sandoval',2,2);
 
-/*TIPO - GEOGRAFIA DONDE SE LOCALIZA*/
+/*TIPO - GEOGRAFIA*/
 CREATE TABLE tb_type(
 	type_id INTEGER AUTO_INCREMENT,
 	type_name VARCHAR(255) NOT NULL,
@@ -76,12 +89,28 @@ INSERT INTO tb_facilities(facilities_name) VALUES
 	('Hospedaje'),
 	('Espacio para niños'),
 	('Asistencia');
+    
+    /*LOCALIZACION*/
+CREATE TABLE tb_location(
+	location_id INTEGER AUTO_INCREMENT,
+	location_name VARCHAR(255) NOT NULL ,
+	CONSTRAINT PRIMARY KEY(location_id)
+);
+
+INSERT INTO tb_location(location_name) VALUES
+	('San José'),
+	('Alajuela'),
+	('Cartago'),
+	('Heredia'),
+	('Puntarenas'),
+	('Guanacaste'),
+	('Limón');
 
 CREATE TABLE tb_destination(
 	destination_id INTEGER AUTO_INCREMENT,
 	destination_name VARCHAR(255),
 	destination_description VARCHAR(1000) NOT NULL,
-	destination_location VARCHAR(255) NOT NULL, 
+	destination_location INTEGER NOT NULL, 
 	destination_url_video VARCHAR(255) NOT NULL,
     destination_url_photo VARCHAR(255),
 	destination_latitude VARCHAR(20) NOT NULL,
@@ -92,8 +121,11 @@ CREATE TABLE tb_destination(
     destination_price INTEGER NOT NULL,
 	destination_type_id INTEGER NOT NULL,
     destination_attraction_id INTEGER NOT NULL,
+    destination_style_id INTEGER NOT NULL,
 	CONSTRAINT PRIMARY KEY (destination_id),
     CONSTRAINT FOREIGN KEY (destination_type_id) REFERENCES tb_type(type_id),
+    CONSTRAINT FOREIGN KEY (destination_style_id) REFERENCES tb_type(type_id),
+    CONSTRAINT FOREIGN KEY (destination_location) REFERENCES tb_location(location_id),
     CONSTRAINT FOREIGN KEY (destination_attraction_id) REFERENCES tb_attraction(attraction_id)
 );
 
@@ -105,6 +137,7 @@ CREATE TABLE tb_destination_facilities(
     CONSTRAINT FOREIGN KEY(facilities_id) REFERENCES tb_facilities(facilities_id)
 );
 
+/*
 CREATE TABLE tb_user_vote(
 	destination_id INTEGER AUTO_INCREMENT,
 	user_id INTEGER NOT NULL,
@@ -112,4 +145,4 @@ CREATE TABLE tb_user_vote(
 	CONSTRAINT FOREIGN KEY (destination_id) REFERENCES tb_destination(destination_id),
 	CONSTRAINT FOREIGN KEY (user_id) REFERENCES tb_user(user_id)
 );
-
+*/

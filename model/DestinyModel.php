@@ -20,7 +20,10 @@ class DestinyModel {
         $this->db = SPDO::singleton();
     }
 
-    //Busqueda Basica
+    /**
+     * Funcion para obtener todos los destinos
+     * @return type
+     */
     function selectAll() {
         $query = $this->db->prepare("call sp_select_all_destination();");
         $query->execute();
@@ -29,7 +32,11 @@ class DestinyModel {
         return $result;
     }
 
-    //TRAER facilidades
+    /**
+     * Funcion para obtener facilidades segun destino
+     * @param type $id
+     * @return type
+     */
     function selectFacilities($id) {
         $query = $this->db->prepare("call sp_select_facilities(:id);");
         $query->execute(array('id' => $id));

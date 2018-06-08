@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @author <kevin.sandoval@ucr.ac.cr><kevin.sandoval@ucr.ac.cr>
  * @version 1.0
  * @copyright (c) 2018, Kevin Sandoval Loaiza b46549, Pablo Barrientos Brenes b40920
  * @access public
@@ -19,9 +18,7 @@ class AppUserController {
     }
 
     /**
-     * 
-     * ?controller=AppUser&action=signIn
-     * Funcion para iniciar sesión 
+     * Funcion para iniciar sesión desde android
      */
     function signIn() {
         if (isset($_REQUEST['mail']) && isset($_REQUEST['password'])) {
@@ -34,8 +31,7 @@ class AppUserController {
     }
 
     /**
-     * ?controller=AppUser&action=signUp&mail=admas@adm.com&password=111&name=ADMIN&lastname=ADMIN&style=Conservador
-     * Funcion para registrar
+     * Funcion para registrarse desde android
      */
     function signUp() {
         if (isset($_REQUEST['mail']) && isset($_REQUEST['password']) && isset($_REQUEST['name']) && isset($_REQUEST['lastname']) && isset($_REQUEST['style'])) {
@@ -48,8 +44,6 @@ class AppUserController {
     }
 
     /**
-     * /?controller=AppUser&action=updateUser&mail=adm@adm.com&password=111&name=ADMIN&lastname=ADMIN&style=Conservador
-     * ?controller=AppUser&action=updateUser
      * Funcion para actualizar usuario 
      */
     function updateUser() {
@@ -63,7 +57,6 @@ class AppUserController {
     }
 
     /**
-     * ?controller=AppUser&action=selectUser
      * Funcion para seleccionar usuario 
      */
     function selectUser() {
@@ -75,7 +68,11 @@ class AppUserController {
             echo json_encode(array('result' => 0));
         }
     }
-
+    /**
+     * Funcion para limpiar un array
+     * @param type $array
+     * @return type
+     */
     function clearArray($array = array()) {
         for ($j = 0; $j < count($array); $j++) {
             unset($array[$j]);

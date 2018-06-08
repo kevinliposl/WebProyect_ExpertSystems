@@ -21,8 +21,10 @@ class UserModel {
     }
 
     /**
-     * @return array result
-     * function *****************
+     * Funcion para iniciar sesion
+     * @param type $mail
+     * @param type $password
+     * @return type
      */
     function signIn($mail, $password) {
         $query = $this->db->prepare("call sp_sign_in_user(:mail,:password);");
@@ -33,8 +35,13 @@ class UserModel {
     }
 
     /**
-     * @return array result
-     * function *****************
+     * Funcion para registrar usuario
+     * @param type $mail
+     * @param type $password
+     * @param type $name
+     * @param type $lastname
+     * @param type $style
+     * @return type
      */
     function signUp($mail, $password, $name, $lastname, $style) {
         $query = $this->db->prepare("call sp_sign_up_user(:mail,:password,:name,:lastname,:style);");
@@ -45,8 +52,9 @@ class UserModel {
     }
 
     /**
-     * @return array result
-     * function *****************
+     * Funcion para seleccionar usuario
+     * @param type $mail
+     * @return type
      */
     function selectUser($mail) {
         $query = $this->db->prepare("call sp_select_user(:mail);");
@@ -57,8 +65,13 @@ class UserModel {
     }
 
     /**
-     * @return array result
-     * function *****************
+     * Funcion para actualizar usuario
+     * @param type $mail
+     * @param type $password
+     * @param type $name
+     * @param type $lastname
+     * @param type $style
+     * @return type
      */
     function updateUser($mail, $password, $name, $lastname, $style) {
         $query = $this->db->prepare("call sp_update_user(:mail,:password,:name,:lastname,:style);");

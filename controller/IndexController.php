@@ -80,13 +80,6 @@ class IndexController {
     }
 
     /**
-     * Redirecciona a la busqueda basica
-     */
-    function basicSearch() {
-        $this->view->show("basicSearchView.php");
-    }
-
-    /**
      * Redirecciona al perfil
      */
     function profileUser() {

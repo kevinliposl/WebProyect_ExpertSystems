@@ -14,57 +14,18 @@ class DestinyController {
      */
     function __construct() {
         $this->view = new View();
-        require_once 'model/UserModel.php';
+        require_once 'model/DestinyModel.php';
     }
 
     /**
      * Funcion para registrar 
      */
-    function signUp() {
-        if (isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['style']) && !SSession::getInstance()->__isset("role")) {
-            $model = new UserModel;
-            $result = $model->signUp($_POST['mail'], $_POST['password']);
-            echo json_encode(array('result' => $result['result']));
-        } else {
-            echo json_encode(array('result' => 0));
-        }
-    }
-
-    /**
-     * Funcion para iniciar sesión 
-     */
-    function signIn() {
-        if (isset($_POST['mail']) && isset($_POST['password']) && !SSession::getInstance()->__isset("role")) {
-            $model = new UserModel;
-            $result = $model->signIn($_POST['mail'], $_POST['password']);
-            $this->onSession($result['result'], $_POST['mail'], $result['role']);
-            echo json_encode(array('result' => $result['result']));
-        } else {
-            echo json_encode(array('result' => 0));
-        }
-    }
-
-    /**
-     * Funcion para cerrar sesión 
-     */
-    function signOut() {
-        if (SSession::getInstance()->__isset("role")) {
-            $session = SSession::getInstance();
-            $session->destroy();
-            $this->view->show("indexView.php");
-        } else {
-            $this->view->show("indexView.php");
-        }
-    }
-
-    /**
-     * Funcion para dar permisos 
-     */
-    private function onSession($result, $mail, $role) {
-        if (intval($result)) {
-            SSession::getInstance()->mail = $mail;
-            SSession::getInstance()->role = $role;
-        }
+    function basicSearchView() {
+        $model = new DestinyModel();
+        $destiny = $model->selectAll();
+        $attraction = $model->selectAllAttraction();
+        $types = $model->selectAllTypes();
+        $this->view->show("basicSearchView.php", array("destiny" => $destiny, "attraction" => $attraction, "type" => $types));
     }
 
 }

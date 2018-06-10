@@ -136,6 +136,23 @@ BEGIN
 END $$
 DELIMITER ;
 
+
+DELIMITER $$ 
+CREATE PROCEDURE sp_select_all_attraction()
+BEGIN
+	SELECT attraction_name name, attraction_id id FROM tb_attraction;
+END $$
+DELIMITER ;
+
+
+DELIMITER $$ 
+CREATE PROCEDURE sp_select_all_type()
+BEGIN
+	SELECT type_name name, type_id id FROM tb_type;
+END $$
+DELIMITER ;
+
+
 DELIMITER $$
 CREATE PROCEDURE sp_insert_facilities()
 BEGIN

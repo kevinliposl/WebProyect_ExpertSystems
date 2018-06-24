@@ -6,6 +6,32 @@ if (isset($session->role)) {
     include_once 'public/header.php';
 }
 ?>
+
+<style>
+
+    .fullscreen-modal .modal-dialog {
+        margin: 0;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        .fullscreen-modal .modal-dialog {
+            width: 850px;
+        }
+    }
+    @media (min-width: 992px) {
+        .fullscreen-modal .modal-dialog {
+            width: 1070px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .fullscreen-modal .modal-dialog {
+            width: 1270px;
+        }
+    }
+</style>
+
 <script>
     (function () {
         $("#menu-basic-search").addClass("active");
@@ -26,6 +52,25 @@ if (isset($session->role)) {
     ?>
 </div>
 
+<button type="button" class="c-button b-40 bg-red-3 hv-red-3-o fl" data-toggle="modal" data-target="#myModal">
+    Modal
+</button>
+
+<div class="modal fullscreen-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <form action="#" class="hotel-filter">
         <div class="baner-bar cars-bar">
@@ -33,13 +78,20 @@ if (isset($session->role)) {
                 <div class="col-md-12">
                     <div class="hotels-block">
                         <h4>Localización</h4>
-                        <div class="ui-widget input-style-1">
-                            <img src="public/img/loc_icon_small_grey.png" alt="">
-                            <input  type="text" placeholder="Destino" required>
-                        </div>
+                        <select class="form-control">
+                            <option value="-1">No importa</option>
+                            <?php
+                            foreach ($vars['attraction'] as $value) {
+                                $tmpId = $value['id'];
+                                $tmpName = $value['name'];
+                                echo "<option value = '$tmpId'>$tmpName</option>";
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-md-4">
                     <div class="hotels-block">
@@ -152,6 +204,5 @@ if (isset($session->role)) {
 include_once 'public/footer.php';
 ?>
 <script src="public/js/jquery.circliful.min.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;language=en&key=AIzaSyBT_bTr4NqhArVYWCSHkxM4qjruliItm_M"></script>	
-<script src = "public/js/map.js"></script>
-
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;language=es&key=AIzaSyBT_bTr4NqhArVYWCSHkxM4qjruliItm_M"></script>	
+<script src="public/js/map.js"></script>

@@ -32,6 +32,15 @@ class DestinyModel {
         return $result;
     }
 
+    function selectAllBasicTraining() {
+        $query = $this->db->prepare("call sp_select_all_destination_basic_training();");
+        $query->execute();
+        $result = $query->fetchAll();
+        $query->closeCursor();
+        return $result;
+    }
+
+
     /**
      * Funcion para obtener facilidades segun destino
      * @param type $id

@@ -65,9 +65,9 @@ if (isset($session->role)) {
                                     <div class="form-label color-dark-2">¿Usted se considera?</div>
                                     <div class="input-style-2 form-group">
                                         <select class="form-control">
-                                            <option value="1">Conservador</option>
-                                            <option value="2">Investigador</option>
-                                            <option value="3">Aventurero</option>
+                                            <option <?php if($vars['style']=="Conservador") {echo 'selected';}?> value="1">Conservador</option>
+                                            <option <?php if($vars['style']=="Investigador") {echo 'selected';}?> value="2">Investigador</option>
+                                            <option <?php if($vars['style']=="Aventurero") {echo 'selected';}?> value="3">Aventurero</option>
                                         </select>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@ if (isset($session->role)) {
                 <div class="right-sidebar">
                     <div class="popular-tours bg-grey-2">
                         <h4 class="color-dark-2">Historial</h4>
-                        <div class="hotel-small style-2 clearfix">
+<!--                        <div class="hotel-small style-2 clearfix">
                             <a class="hotel-img black-hover" href="#">
                                 <img class="img-responsive radius-0" src="public/img/home_10/tour_1.jpg" alt="">
                                 <div class="tour-layer delay-1"></div>        						
@@ -113,7 +113,7 @@ if (isset($session->role)) {
                                 <h4>ASIA CRUISES</h4>
                                 <div class="hotel-loc tt"><strong>19.07 - 26.07 / 7</strong> nights</div>
                             </div>
-                        </div>											
+                        </div>											-->
                     </div>
                     <div class="sidebar-text-label bg-dr-blue-2 color-white">Ver todo el historial</div>
                 </div>       			

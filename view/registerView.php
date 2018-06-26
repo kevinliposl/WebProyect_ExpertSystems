@@ -37,7 +37,7 @@ if (isset($session->role)) {
                                 <option value="aventurero">Aventurero</option>
                             </select>
                         </div>				
-                        <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrarse">
+                        <input type="submit" class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrarse">
                     </form>
                 </div>				
             </div>

@@ -23,8 +23,8 @@ if (isset($session->role)) {
                         <div class="input-style-2 form-group">
                             <input class="form-control" id="form-password" type="password" placeholder="Contraseña" required>
                         </div>
-                        <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Ingrese su cuenta">
-                        <a class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" href="?action=rememberPassword">Recordar Contraseña</a>
+                        <input type="submit" class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Ingrese su cuenta">
+                        <a class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" href="?action=rememberPassword">Recordar Contraseña</a>
                     </form>
                     <div id="form-message"></div>
                 </div>				

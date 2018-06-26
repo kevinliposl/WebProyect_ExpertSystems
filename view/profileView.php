@@ -12,7 +12,6 @@ if (isset($session->role)) {
 }
 ?>
 
-
 <script>
     (function () {
         document.getElementById("menu-profile-user").classList.add("active");
@@ -115,7 +114,7 @@ if (isset($session->role)) {
                             </div>
                         </div>											-->
                     </div>
-                    <div class="sidebar-text-label bg-dr-blue-2 color-white">Ver todo el historial</div>
+                    <div class="sidebar-text-label bg-blue-2 color-white">Ver todo el historial</div>
                 </div>       			
             </div>
        	</div>

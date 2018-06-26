@@ -20,7 +20,7 @@ class IndexController {
      * Redireccion al mapa
      */
     function map() {
-        $this->view->show("mapSiteView.php");
+        $this->view->show("siteMapView.php");
     }
 
     /**
@@ -77,13 +77,6 @@ class IndexController {
      */
     function advancedSearch() {
         $this->view->show("advancedSearchView.php");
-    }
-
-    /**
-     * Redirecciona al perfil
-     */
-    function profileUser() {
-        $this->view->show("profileView.php");
     }
 
     /**

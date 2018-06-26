@@ -59,7 +59,5 @@ if (isset($session->role)) {
 include_once 'public/footer.php';
 ?>
 
-
-<script src="public/js/jquery.circliful.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;language=en&key=AIzaSyBT_bTr4NqhArVYWCSHkxM4qjruliItm_M"></script>	
 <script src="public/js/map.js"></script>

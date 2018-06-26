@@ -803,3 +803,23 @@ INSERT INTO tb_destination(destination_name, destination_description, destinatio
     'Todas las grandes cosas en una. Desde las increibles vistas de las exuberantes laderas de las montañas, hasta las hermosas cascadas, las piscinas naturales de los rios que brillan, las caminatas por la selva tropical.',
     3,'https://www.youtube.com/embed/tAWa2QL40tc','http://www.canatur.org/quimo/userfiles/FCKE/image/site/Afiliado_Logo.png',
     '9.941796','-83.720544',3,2,10,7,3);
+
+
+
+    /*
+    http://www.canatur.org/quimo/userfiles/FCKE/image/Academai%20tica.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/Arenal.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/ActivaColor.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/ACTUAR.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/site/Acuarela_Tours.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/Adventure%20green.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/Agencia%20Viajes%20Fauna%20Tour.jpg
+    http://www.canatur.org/quimo/userfiles/FCKE/image/te%20enamora.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/genesis.jpg
+    http://www.canatur.org/quimo/userfiles/FCKE/image/anywhere.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/Arenal%20Mundo%20Aventura.jpg
+    http://www.canatur.org/quimo/userfiles/FCKE/image/Ballena%20Aventura.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/logo-canatur-bytto.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/site/Caminando_Costa_Rica.png
+    http://www.canatur.org/quimo/userfiles/FCKE/image/Caribe%20Fun%20Turs.png
+    */

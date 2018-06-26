@@ -148,9 +148,9 @@ CREATE TABLE tb_user_vote(
 */
 
 CREATE TABLE tb_training_set (
-  id INTEGER,
   event_name VARCHAR(255),
-  data_training json,
-  CONSTRAINT pk_tb_training_set_id PRIMARY KEY(id)
+  data_classProbability json,
+  data_chanceClassFrequency json,
+  CONSTRAINT pk_tb_training_set_id PRIMARY KEY(event_name)
 
 ) ENGINE=InnoDB;

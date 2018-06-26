@@ -16,7 +16,7 @@ class DestinyModel {
      * class constructor
      */
     function __construct() {
-        require 'libs/SPDO.php';
+        require_once 'libs/SPDO.php';
         $this->db = SPDO::singleton();
     }
 
@@ -37,6 +37,15 @@ class DestinyModel {
         $query->execute();
         $result = $query->fetchAll();
         $query->closeCursor();
+        return $result;
+    }
+
+    function saveTraining($classProbability,$chanceClassFrequency, $mode){
+        $classProbability = json_encode($classProbability);
+        $chanceClassFrequency = json_encode($chanceClassFrequency);
+        $query = $this->db->prepare("call sp_save_all_naive_bayes_data('$mode','$classProbability','$chanceClassFrequency')");
+        $query->execute();
+        $result = $query->fetch();
         return $result;
     }
 

@@ -45,6 +45,8 @@ class DestinyController {
 
         $naiveBayes->training($vars, $labels, $possibleValues);
 
+        $naiveBayes->saveTraining('basicsearch');
+
         $naiveBayes->printNaiveBayesVariables();
 
     }

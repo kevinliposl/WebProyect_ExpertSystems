@@ -183,6 +183,12 @@ BEGIN
 END $$
 DELIMITER ;
 
+DELIMITER $$ 
+CREATE PROCEDURE sp_select_all_location()
+BEGIN
+	SELECT location_name name, location_id id FROM tb_location;
+END $$
+DELIMITER ;
 
 DELIMITER $$ 
 CREATE PROCEDURE sp_select_all_type()

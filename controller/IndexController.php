@@ -20,7 +20,7 @@ class IndexController {
      * Redireccion al mapa
      */
     function map() {
-        $this->view->show("mapSiteView.php");
+        $this->view->show("siteMapView.php");
     }
 
     /**

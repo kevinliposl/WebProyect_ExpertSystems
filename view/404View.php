@@ -25,8 +25,8 @@ if (isset($session->role)) {
             <h3>Not Found</h3>
         </div>
         <div class="not-found-line"></div>
-        <div class="not-found-title">we are sorry</div>
-        <div class="not-found-message">We seem to have lost this page, try one of these instead</div>
+        <div class="not-found-title">Lo sentimos...</div>
+        <div class="not-found-message">Parece que hemos perdido esta página, pruébalo más tarde.</div>
     </div>
 </div>
 

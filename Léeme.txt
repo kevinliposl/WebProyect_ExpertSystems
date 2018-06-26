@@ -1,5 +1,0 @@
-PKtourism = Aplicación Android.
-WebProject_ExpertSystems_B49020_B46549 = Web, Parte Servidor.
-
-Los archivos importantes del servidor van en la carpeta controller, los de NOMBRE App.
-Los archivos de la base de datos van en la carpeta db.

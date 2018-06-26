@@ -40,14 +40,15 @@ if (isset($session->role)) {
                     <div class="contact-entry">
                         <img class="contact-icon" src="public/img/loc_icon_2_dark.png" alt="">
                         <div class="contact-label color-grey-3">Dirección:</div>
-                        <div class="contact-text color-dark-2">Universidad de Costa Rica, Sede del Atlántico,<br> Provincia de Cartago, Turrialba</div>
+                        <a class="contact-text color-dark-2" target="_blank" href="https://www.google.com/maps/place/Universidad+de+Costa+Rica+-+Sede+del+Atl%C3%A1ntico/@9.9023626,-83.6707463,15z/data=!4m5!3m4!1s0x0:0xd2ae13fcaa9ce072!8m2!3d9.9023626!4d-83.6707463">
+                            Universidad de Costa Rica, Sede del Atlántico,<br> Provincia de Cartago, Turrialba</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="contact-entry">
                         <img class="contact-icon" src="public/img/mail_icon_l_dark.png" alt="">
                         <div class="contact-label color-grey-3">Correo Electrónico:</div>
-                        <a class="contact-text color-dark-2 link-dr-blue-2" href="mailto:kevinliposl@gmail.com&brogudbarrientos@gmail.com">kevinliposl@gmail.com <br> brogudbarrientos@gmail.com</a>
+                        <a class="contact-text color-dark-2 link-dr-blue-2" target="_blank" href="mailto:kevinliposl@gmail.com&brogudbarrientos@gmail.com">kevinliposl@gmail.com <br> brogudbarrientos@gmail.com</a>
                     </div>
                 </div>		
             </div>

@@ -1,3 +1,16 @@
+DELIMITER $$
+CREATE PROCEDURE sp_save_all_naive_bayes_data(
+  _event_name VARCHAR(255),
+  classProbability JSON,
+  chanceClassFrequency JSON
+)
+BEGIN
+	DELETE FROM tb_training_set WHERE event_name = _event_name;
+    INSERT INTO tb_training_set
+    VALUES(_event_name, classProbability, chanceClassFrequency);
+END $$
+DELIMITER ;
+
 -- CALL sp_sign_in_user('kevinliposl@gmail.com','1234');
 
 DELIMITER $$
@@ -191,5 +204,6 @@ BEGIN
     SELECT @i;
 END $$
 DELIMITER ;
+
 
 CALL sp_insert_facilities();

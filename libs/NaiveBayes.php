@@ -139,9 +139,9 @@ class NaiveBayes {
         Este método guarda las variables con los datos necesarios para predecir según lo que envíe el usuario
     */
     function saveTraining($mode){
-        require_once 'model/IndexModel.php';
-        $indexModel = new IndexModel();
-        $indexModel->saveTraining($this->classProbability,$this->chanceClassFrequency, $mode);
+        require_once 'model/DestinyModel.php';
+        $dModel = new DestinyModel();
+        $dModel->saveTraining($this->classProbability,$this->chanceClassFrequency, $mode);
     }
 
     /*

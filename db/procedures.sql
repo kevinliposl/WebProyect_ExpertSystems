@@ -11,6 +11,17 @@ BEGIN
 END $$
 DELIMITER ;
 
+DELIMITER $$
+CREATE PROCEDURE sp_get_all_naive_bayes_data(
+  _event_name VARCHAR(255)
+)
+BEGIN
+    SELECT *
+    FROM tb_training_set
+    WHERE event_name = _event_name;
+END $$
+DELIMITER ; 
+
 -- CALL sp_sign_in_user('kevinliposl@gmail.com','1234');
 
 DELIMITER $$

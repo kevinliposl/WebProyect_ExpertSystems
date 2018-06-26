@@ -141,7 +141,7 @@ class NaiveBayes {
     function saveTraining($mode){
         require_once 'model/DestinyModel.php';
         $dModel = new DestinyModel();
-        $dModel->saveTraining($this->classProbability,$this->chanceClassFrequency, $mode);
+        return $dModel->saveTraining($this->classProbability,$this->chanceClassFrequency, $mode);
     }
 
     /*

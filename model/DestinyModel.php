@@ -45,7 +45,8 @@ class DestinyModel {
         $chanceClassFrequency = json_encode($chanceClassFrequency);
         $query = $this->db->prepare("call sp_save_all_naive_bayes_data('$mode','$classProbability','$chanceClassFrequency')");
         $query->execute();
-        $result = $query->fetch();
+        $result = $query->fetchAll();
+        $query->closeCursor();
         return $result;
     }
 
@@ -87,6 +88,28 @@ class DestinyModel {
         $result = $query->fetchAll();
         $query->closeCursor();
         return $result;
+    }
+
+    function getAllTrainingData($mode){
+        
+        $query = $this->db->prepare("call sp_get_all_naive_bayes_data('$mode')");
+        $query->execute();
+        $data = $query->fetchAll(PDO::FETCH_ASSOC);
+        $query->closeCursor();
+        $rows = count($data);
+        $allTrainingData = [];
+
+        for ($i = 0; $i < $rows; $i++) {
+
+            $dataArray = [];
+
+            $dataArray["classProbability"] = $data[$i]["data_classProbability"];
+            $dataArray["chanceClassFrequency"] = $data[$i]["data_chanceClassFrequency"];
+
+            array_push($allTrainingData, $dataArray);
+
+        }
+        return $allTrainingData;
     }
 
 }

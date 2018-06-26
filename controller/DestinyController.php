@@ -15,6 +15,7 @@ class DestinyController {
     function __construct() {
         $this->view = new View();
         require_once 'model/DestinyModel.php';
+        require_once 'libs/NaiveBayes.php';
     }
 
     /**
@@ -26,6 +27,26 @@ class DestinyController {
         $attraction = $model->selectAllAttraction();
         $types = $model->selectAllTypes();
         $this->view->show("basicSearchView.php", array("destiny" => $destiny, "attraction" => $attraction, "type" => $types));
+    }
+
+    function training(){
+        $model = new DestinyModel;
+        $naiveBayes = new NaiveBayes();
+
+        $vars = $model->selectAllBasicTraining();
+
+        $labels = array('location_id' => 7,'attraction_id' => 7,'type_id' => 3,'stars' => 5,'style_id' => 3);
+
+        $possibleValues  = array('location_id' => array(1,2,3,4,5,6,7),
+                                'attraction_id' => array(1,2,3,4,5,6,7),
+                                'type_id' => array(1,2,3),
+                                'stars' => array(1,2,3,4,5),
+                                'style_id' => array(1,2,3));
+
+        $naiveBayes->training($vars, $labels, $possibleValues);
+
+        $naiveBayes->printNaiveBayesVariables();
+
     }
 
 }

@@ -146,3 +146,11 @@ CREATE TABLE tb_user_vote(
 	CONSTRAINT FOREIGN KEY (user_id) REFERENCES tb_user(user_id)
 );
 */
+
+CREATE TABLE tb_training_set (
+  id INTEGER,
+  event_name VARCHAR(255),
+  data_training json,
+  CONSTRAINT pk_tb_training_set_id PRIMARY KEY(id)
+
+) ENGINE=InnoDB;

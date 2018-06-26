@@ -120,6 +120,21 @@ BEGIN
 END $$
 DELIMITER ;
 
+DELIMITER $$
+CREATE PROCEDURE sp_select_all_destination_basic_training(
+)
+BEGIN
+	SELECT location_id, attraction_id, type_id, destination_stars stars,
+    destination_style_id style_id
+    FROM tb_destination 
+    INNER JOIN tb_type ON destination_type_id = type_id 
+    INNER JOIN tb_attraction ON attraction_id = destination_attraction_id
+    INNER JOIN tb_location ON location_id = destination_location
+    INNER JOIN tb_style ON style_id = destination_style_id
+    ORDER BY destination_id asc;
+END $$
+DELIMITER ;
+
 -- CALL sp_select_facilities(1);
 -- DROP PROCEDURE sp_select_facilities;
 

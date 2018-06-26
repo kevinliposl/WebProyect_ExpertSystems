@@ -43,7 +43,7 @@
                                         </a>
                                     </li>
                                     <li id="menu-profile-user" class="type-1">
-                                        <a href="?action=profileUser">Perfil
+                                        <a href="?controller=User&action=profileUser">Perfil
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                     </li>

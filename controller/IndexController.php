@@ -80,13 +80,6 @@ class IndexController {
     }
 
     /**
-     * Redirecciona al perfil
-     */
-    function profileUser() {
-        $this->view->show("profileView.php");
-    }
-
-    /**
      * Redirecciona a insertar destino
      */
     function insertDestiny() {

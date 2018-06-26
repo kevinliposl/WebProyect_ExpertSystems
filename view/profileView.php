@@ -32,7 +32,7 @@ if (isset($session->role)) {
                                 <div class="form-block type-2 clearfix">
                                     <div class="form-label color-dark-2">Nombre</div>
                                     <div class="input-style-2 form-group">
-                                        <input class="form-control" type="text" placeholder="Ingrese su nombre">
+                                        <input class="form-control" type="text" value="<?php echo $vars['name']?>" placeholder="Ingrese su nombre">
                                     </div>
                                 </div>							
                             </div>
@@ -40,7 +40,7 @@ if (isset($session->role)) {
                                 <div class="form-block type-2 clearfix">
                                     <div class="form-label color-dark-2">Apellidos</div>
                                     <div class="input-style-2 form-group">
-                                        <input class="form-control" type="text" placeholder="Ingresa su apellido">
+                                        <input class="form-control" type="text" value="<?php echo $vars['lastname']?>" placeholder="Ingresa su apellido">
                                     </div>
                                 </div>							
                             </div>
@@ -48,7 +48,7 @@ if (isset($session->role)) {
                                 <div class="form-block type-2 clearfix">
                                     <div class="form-label color-dark-2">Correo</div>
                                     <div class="input-style-2 form-group">
-                                        <input class="form-control" type="text" placeholder="Ingrese su direcci&oacute;n de correo electr&oacute;nico">
+                                        <input class="form-control" type="text" value="<?php echo $vars['mail']?>" placeholder="Ingrese su direcci&oacute;n de correo electr&oacute;nico">
                                     </div>
                                 </div>							
                             </div>
@@ -65,9 +65,9 @@ if (isset($session->role)) {
                                     <div class="form-label color-dark-2">¿Usted se considera?</div>
                                     <div class="input-style-2 form-group">
                                         <select class="form-control">
-                                            <option>Aventurero</option>
-                                            <option>Conservador</option>
-                                            <option>Investigador</option>
+                                            <option value="1">Conservador</option>
+                                            <option value="2">Investigador</option>
+                                            <option value="3">Aventurero</option>
                                         </select>
                                     </div>
                                 </div>

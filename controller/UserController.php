@@ -46,6 +46,19 @@ class UserController {
     }
 
     /**
+     * Funcion para ver el perfil
+     */
+    function profileUser() {
+        if (SSession::getInstance()->__isset("role")) {
+            $model = new UserModel;
+            $result = $model->selectUser(SSession::getInstance()->mail);
+            $this->view->show("profileView.php", $result);
+        } else {
+            $this->view->show("indexView.php");
+        }
+    }
+
+    /**
      * Funcion para cerrar sesión 
      */
     function signOut() {

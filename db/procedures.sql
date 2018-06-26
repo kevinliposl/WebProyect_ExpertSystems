@@ -40,7 +40,7 @@ BEGIN
 END $$
 DELIMITER ;
 
--- CALL sp_select_user('bbbbarrientos@hotmail.com');
+-- CALL sp_select_user('kevinliposl@gmail.com');
 
 DELIMITER $$
 CREATE PROCEDURE sp_select_user(
@@ -48,7 +48,7 @@ mail_tmp VARCHAR(255)
 )
 BEGIN
 IF EXISTS(SELECT user_mail FROM tb_user WHERE user_mail = mail_tmp)THEN 
-	SELECT 1 as result, user_id as id, user_mail as mail, user_name as name, user_lastname as lastname, style_name as style 
+	SELECT 1 as result, user_id as id, user_mail as mail, user_name as name, user_lastname as lastname, style_name as style
     FROM tb_user
     INNER JOIN tb_style ON style_id = user_style
     WHERE user_mail = mail_tmp;

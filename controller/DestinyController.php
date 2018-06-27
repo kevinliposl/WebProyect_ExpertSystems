@@ -35,22 +35,22 @@ class DestinyController {
 
         $vars = $model->selectAllBasicTraining();
 
-        $labels = array('location_id' => 7,'type_id' => 3,'stars' => 5, 'attraction_id' => 7);
+        $labels = array('location_id' => 7, 'type_id' => 3, 'stars' => 5, 'attraction_id' => 7);
 
-        $possibleValues  = array('location_id' => array(1,2,3,4,5,6,7),
-                                'type_id' => array(1,2,3),
-                                'stars' => array(1,2,3,4,5),
-                                'attraction_id' => array(1,2,3,4,5,6,7));
+        $possibleValues = array('location_id' => array(1, 2, 3, 4, 5, 6, 7),
+            'type_id' => array(1, 2, 3),
+            'stars' => array(1, 2, 3, 4, 5),
+            'attraction_id' => array(1, 2, 3, 4, 5, 6, 7));
 
         /*
-        $userPetition = json_decode($_POST['userPetition']);
-        */
-        $userValues  = array('location_id' => intval('4'),'type_id' => intval('1'),'stars' => intval('1'));
+          $userPetition = json_decode($_POST['userPetition']);
+         */
+        $userValues = array('location_id' => intval('4'), 'type_id' => intval('1'), 'stars' => intval('1'));
         $naiveBayes->loadVariables($model->getAllTrainingData('basicsearch'), $labels, $possibleValues);
         $predict = $naiveBayes->predict($userValues);
-        
+
         $this->distanceEuclideanBasicSearch($predict, $userValues);
-    }   
+    }
 
     function distanceEuclideanBasicSearch($predict, $userValues) {
         $model = new DestinyModel;
@@ -70,26 +70,26 @@ class DestinyController {
 
         for ($i = 0; $i < 6; $i++) {
             foreach ($vars as $var) {
-                if($var['destination_id'] == $array[$i]['id']){
+                if ($var['destination_id'] == $array[$i]['id']) {
                     array_push($recomendation, $var);
                 }
             }
         }
         echo json_encode($recomendation);
     }
-    
-    function trainingBasicSearch(){
+
+    function trainingBasicSearch() {
         $model = new DestinyModel;
         $naiveBayes = new NaiveBayes();
 
         $vars = $model->selectAllBasicTraining();
 
-        $labels = array('location_id' => 7,'type_id' => 3,'stars' => 5, 'attraction_id' => 7,);
+        $labels = array('location_id' => 7, 'type_id' => 3, 'stars' => 5, 'attraction_id' => 7,);
 
-        $possibleValues  = array('location_id' => array(1,2,3,4,5,6,7),
-                                'type_id' => array(1,2,3),
-                                'stars' => array(1,2,3,4,5),
-                                'attraction_id' => array(1,2,3,4,5,6,7));
+        $possibleValues = array('location_id' => array(1, 2, 3, 4, 5, 6, 7),
+            'type_id' => array(1, 2, 3),
+            'stars' => array(1, 2, 3, 4, 5),
+            'attraction_id' => array(1, 2, 3, 4, 5, 6, 7));
 
         $naiveBayes->training($vars, $labels, $possibleValues);
 
@@ -124,7 +124,7 @@ class DestinyController {
         return $array;
     }
 
-        /**
+    /**
      * Funcion para realizar la distancia de euclides, requiere de 2 arreglos del mismo tamaño
      * @param type $arrayA
      * @param type $arrayB
@@ -142,4 +142,28 @@ class DestinyController {
         }
         return 1 / ( 1 + sqrt((float) $distance));
     }
+
+    /**
+     * Redirecciona a insertar destino
+     */
+    function insert() {
+        $this->view->show("insertDestinyView.php");
+    }
+
+    /**
+     * Redirecciona a eliminar destino
+     */
+    function delete() {
+        $model = new DestinyModel;
+        $vars = $model->selectAll();
+        $this->view->show("deleteDestinyView.php", $vars);
+    }
+
+    /**
+     * Redirecciona a actualizar destino
+     */
+    function update() {
+        $this->view->show("updateDestinyView.php");
+    }
+
 }

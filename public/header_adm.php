@@ -39,9 +39,9 @@
                                 <ul>
                                     <li id="menu-destination" class="type-1"><a href="#">Destino</a>
                                         <ul class="dropmenu">
-                                            <li><a href="?action=insertDestiny">Registrar</a></li>
-                                            <li><a href="?action=updateDestiny">Actualizar</a></li>
-                                            <li><a href="?action=deleteDestiny">Eliminar</a></li>
+                                            <li><a href="?controller=Destiny&action=insert">Registrar</a></li>
+                                            <li><a href="?controller=Destiny&action=update">Actualizar</a></li>
+                                            <li><a href="?controller=Destiny&action=delete">Eliminar</a></li>
                                         </ul>
                                     </li>
                                     <li id="menu-sign-out" class="type-1">

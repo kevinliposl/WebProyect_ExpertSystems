@@ -799,7 +799,7 @@ INSERT INTO tb_destination(destination_name, destination_description, destinatio
     'Belleza pura. Todas las grandes cosas en una. Desde las increibles vistas de las exuberantes laderas de las montañas, hasta las hermosas cascadas, las piscinas naturales de los rios que brillan, las caminatas por la selva tropical.',
     3,'https://www.youtube.com/embed/tAWa2QL40tc','http://www.canatur.org/quimo/userfiles/FCKE/image/site/Afiliado_Logo.png',
     '9.941796','-83.720544',3,2,200,7,3),
-	('Hotel el rio',
+	('Hotel el Río',
     'Todas las grandes cosas en una. Desde las increibles vistas de las exuberantes laderas de las montañas, hasta las hermosas cascadas, las piscinas naturales de los rios que brillan, las caminatas por la selva tropical.',
     3,'https://www.youtube.com/embed/tAWa2QL40tc','http://www.canatur.org/quimo/userfiles/FCKE/image/site/Afiliado_Logo.png',
     '9.941796','-83.720544',3,2,10,7,3);

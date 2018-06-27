@@ -72,25 +72,4 @@ class IndexController {
         $this->view->show("advancedSearchView.php");
     }
 
-    /**
-     * Redirecciona a insertar destino
-     */
-    function insertDestiny() {
-        $this->view->show("insertDestinyView.php");
-    }
-
-    /**
-     * Redirecciona a eliminar destino
-     */
-    function deleteDestiny() {
-        $this->view->show("deleteDestinyView.php");
-    }
-
-    /**
-     * Redirecciona a actualizar destino
-     */
-    function updateDestiny() {
-        $this->view->show("updateDestinyView.php");
-    }
-
 }

@@ -33,8 +33,10 @@ if (isset($session->role)) {
                     <form class="f-login-form">
                         <div class="input-style-1 b-50 type-2 color-5">
                             <select class="form-control selectpicker">
-                                <option>1</option>
-                                
+                                <option selected disabled>Destino</option>
+                                <?php foreach ($vars as $value) { ?>
+                                <option value="<?= $value['id'];?>"><?= $value['name'];?></option>";
+                                <?php }?>
                             </select>
                         </div>
                         <input type="submit" class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Eliminar">
@@ -45,7 +47,8 @@ if (isset($session->role)) {
     </div>
 </div>  
 
-
+</br>
+</br>
+</br>
 <?php
-
 include_once 'public/footer.php';

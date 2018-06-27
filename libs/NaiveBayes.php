@@ -227,12 +227,20 @@ class NaiveBayes {
     function selectPrediction($frecuencyProductoUser){
         $keys = array_keys($this->labels);
         $major = 0;
-        $class = "";
+        $majorTwo = 0;
+        $class = [];
 
         foreach ($frecuencyProductoUser as $key => $value) {
-            if($value >= $major ){
-                $major = $value;
-                $class = $key;
+            if(count($class)>1){
+                if($value >= $major ){
+                    $major = $value;
+                    $class[0] = $key;
+                }else if ($value >= $majorTwo){
+                    $majorTwo = $value;
+                    $class[1] = $key;
+                }
+            }else{
+                array_push($class, $key);
             }
         }
 

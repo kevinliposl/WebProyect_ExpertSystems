@@ -44,15 +44,16 @@ class DestinyController {
 
         /*
         $userPetition = json_decode($_POST['userPetition']);
-        $userValues  = array('location_id' => intval($userPetition[0]),'attraction_id' => intval($userPetition[1]),'type_id' => $userPetition[2],'stars' => $userPetition[3]);
         */
+        $userValues  = array('location_id' => intval('4'),'type_id' => intval('1'),'stars' => intval('1'));
+        
         
         $naiveBayes->loadVariables($model->getAllTrainingData('basicsearch'), $labels, $possibleValues);
+
         
-        $naiveBayes->printNaiveBayesVariables();
-        /*
         $predict = $naiveBayes->predict($userValues);
-        */
+        
+        print_R($predict);
     
     }   
     

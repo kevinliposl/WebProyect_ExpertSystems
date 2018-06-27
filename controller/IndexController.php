@@ -52,13 +52,6 @@ class IndexController {
     }
 
     /**
-     * Redirecciona al recordar contraseña
-     */
-    function rememberPassword() {
-        $this->view->show("rememberPasswordView.php");
-    }
-
-    /**
      * Redirecciona a detalle de la atraccion
      */
     function destinationDetail() {

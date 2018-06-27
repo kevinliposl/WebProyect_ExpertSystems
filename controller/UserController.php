@@ -46,6 +46,24 @@ class UserController {
     }
 
     /**
+     * Funcion para recordar contraseña 
+     */
+    function rememberPassword() {
+        if (isset($_POST['mail'])) {
+            $model = new UserModel;
+            $result = $model->rememberPassword($_POST['mail']);
+            if (isset($result['password'])) {
+                $this->sendPassword($_POST['mail'], $_POST["password"]);
+                echo json_encode(array('result' => 1));
+            } else {
+                echo json_encode(array('result' => 0));
+            }
+        } else {
+            $this->view->show("rememberPasswordView.php");
+        }
+    }
+
+    /**
      * Funcion para ver el perfil
      */
     function profileUser() {
@@ -79,6 +97,12 @@ class UserController {
             SSession::getInstance()->mail = $mail;
             SSession::getInstance()->role = $role;
         }
+    }
+
+    private function sendPassword($mail, $password) {
+        $subject = "Recuperar Contraseña";
+        $message = "Su contraseña es :" + $password;
+        while (!SMail::getInstance() - sendMail($mail, $subject, $message));
     }
 
 }

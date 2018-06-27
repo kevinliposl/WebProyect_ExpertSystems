@@ -52,6 +52,18 @@ class UserModel {
     }
 
     /**
+     * Funcion para seleccionar contraseña de usuario
+     * @param type $mail
+     * @return type
+     */
+    function rememberPassword($mail) {
+        $query = $this->db->prepare("call sp_select_user(:mail);");
+        $query->execute(array('mail' => $mail));
+        $result = $query->fetch();
+        $query->closeCursor();
+        return $result;
+    } 
+    /**
      * Funcion para seleccionar usuario
      * @param type $mail
      * @return type

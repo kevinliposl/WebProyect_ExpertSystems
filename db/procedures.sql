@@ -82,6 +82,23 @@ END IF;
 END $$
 DELIMITER ;
 
+-- CALL sp_remember_password('kevinliposl@gmail.com');
+
+DELIMITER $$
+CREATE PROCEDURE sp_remember_password(
+mail_tmp VARCHAR(255)
+)
+BEGIN
+	IF EXISTS(SELECT user_mail FROM tb_user WHERE user_mail = mail_tmp)THEN 
+		SELECT 1 as result, user_password as password
+		FROM tb_user
+		WHERE user_mail = mail_tmp;
+	ELSE
+		SELECT 0 as result;
+	END IF;
+END $$
+DELIMITER ;
+
 -- CALL sp_update_user('bbbbarrientos@hotmail.com','4321','Osvaldo','Loaiza','Conservador');
 
 DELIMITER $$

@@ -40,7 +40,7 @@ class DestinyModel {
         return $result;
     }
 
-    function saveTraining($classProbability,$chanceClassFrequency, $mode){
+    function saveTraining($classProbability, $chanceClassFrequency, $mode) {
         $classProbability = json_encode($classProbability);
         $chanceClassFrequency = json_encode($chanceClassFrequency);
         $query = $this->db->prepare("call sp_save_all_naive_bayes_data('$mode','$classProbability','$chanceClassFrequency')");
@@ -49,7 +49,6 @@ class DestinyModel {
         $query->closeCursor();
         return $result;
     }
-
 
     /**
      * Funcion para obtener facilidades segun destino
@@ -90,24 +89,19 @@ class DestinyModel {
         return $result;
     }
 
-    function getAllTrainingData($mode){
-        
+    function getAllTrainingData($mode) {
+
         $query = $this->db->prepare("call sp_get_all_naive_bayes_data('$mode')");
         $query->execute();
         $data = $query->fetchAll(PDO::FETCH_ASSOC);
         $query->closeCursor();
         $rows = count($data);
-        $allTrainingData = [];
-
+        $allTrainingData = array();
         for ($i = 0; $i < $rows; $i++) {
-
-            $dataArray = [];
-
+            $dataArray = array();
             $dataArray["classProbability"] = $data[$i]["data_classProbability"];
             $dataArray["chanceClassFrequency"] = $data[$i]["data_chanceClassFrequency"];
-
             array_push($allTrainingData, $dataArray);
-
         }
         return $allTrainingData;
     }
@@ -116,6 +110,14 @@ class DestinyModel {
         $query = $this->db->prepare("call sp_get_two_destination('$one','$two');");
         $query->execute();
         $result = $query->fetchAll();
+        $query->closeCursor();
+        return $result;
+    }
+
+    function delete($id) {
+        $query = $this->db->prepare("call sp_delete_destination(:id);");
+        $query->execute(array('id' => $id));
+        $result = $query->fetch();
         $query->closeCursor();
         return $result;
     }

@@ -155,8 +155,13 @@ class DestinyController {
      */
     function delete() {
         $model = new DestinyModel;
-        $vars = $model->selectAll();
-        $this->view->show("deleteDestinyView.php", $vars);
+        if (!$_POST['id']) {
+            $vars = $model->selectAll();
+            $this->view->show("deleteDestinyView.php", $vars);
+        } else {
+            $result = $model->delete($_POST['id']);
+            echo json_encode(array('result' => $result));
+        }
     }
 
     /**

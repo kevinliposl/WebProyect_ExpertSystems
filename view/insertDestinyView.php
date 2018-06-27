@@ -101,10 +101,24 @@ if (isset($session->role)) {
     });
 
     function send() {
+        var args = {
+            'mail': $('#form-mail').val().trim()
+        };
 
+        $('#form-message').html("Espere...");
 
+        $.post('?controller=User&action=rememberPassword', args, function (data) {
+            if (parseInt(data.result) === 1) {
+                $('#form-message').html("Se realizó el envió a su correo electrónico...");
+                setTimeout("location.href = '?';", 1000);
+            } else {
+                $('#form-message').html("Datos erróneos. Por favor, inténtelo otra vez.");
+                setTimeout("$('#form-message').html('');", 5000);
+            }
+        }, 'JSON').fail(function () {
+            alert("La solicitud a fallado!!!");
+        });
     }
-
 </script>
 
 <?php

@@ -39,7 +39,7 @@ if (isset($session->role)) {
                                 <?php }?>
                             </select>
                         </div>
-                        <input type="submit" class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Eliminar">
+                        <input type="submit" class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Eliminar"/>
                     </form>
                 </div>				
             </div>
@@ -50,5 +50,10 @@ if (isset($session->role)) {
 </br>
 </br>
 </br>
+<script>
+
+
+
+</script>
 <?php
 include_once 'public/footer.php';

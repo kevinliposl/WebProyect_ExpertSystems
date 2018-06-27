@@ -17,3 +17,24 @@ $naiveBayes->loadVariables($indexModel->getAllTrainingData('style'), $labels, $p
 $predict = $naiveBayes->predict($userValues);
         
 echo json_encode(array('result' => $predict));
+
+
+/*
+Obtiene los datos de la tabla red
+*/
+function getYourNet(getYourNet) {
+    var result = null;
+    $.ajax({
+        url: "?controller=Index&action=getYourNet",
+        data: {'yourNetData':JSON.stringify(getYourNet)},
+        type: 'post',
+        async: false,
+        beforeSend: function () {
+            $("#answerStyle").html("espera por favor...");
+        },
+        success: function (response) {
+            result = jQuery.parseJSON(response);
+        }
+    });
+    return result.result;
+}

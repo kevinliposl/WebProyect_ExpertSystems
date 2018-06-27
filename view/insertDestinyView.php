@@ -18,6 +18,9 @@ if (isset($session->role)) {
     })();
 </script>
 
+<link href="public/css/select.css" rel="stylesheet" type="text/css" />
+<script src="public/js/bootstrap-select.min.js"></script>
+
 <div class="container">
     <div class="login-fullpage">                                                                            
         <div class="row">
@@ -26,12 +29,12 @@ if (isset($session->role)) {
                     <div class="f-login-title color-dr-blue-2">¡Registrar Destino!</div>
                     <div class="f-login-desc color-grey">Por favor ingrese los datos solicitados!</div>
                 </div>
-                <form class="f-login-form" onsubmit="return send(); return false;">
+                <form class="f-login-form" onsubmit="send(); return false;">
                     <div class="input-style-2 form-group">
                         <input class="form-control" type="text" placeholder="Nombre" required>
                     </div>
                     <div  class="input-style-2 form-group"> 
-                        <select class="form-control">
+                        <select class="form-control selectpicker">
                             <option disabled selected>Atracci&oacute;n</option>
                             <option>Parques Nacionales</option>
                             <option>Ruinas y Lugares Históricos</option>
@@ -43,7 +46,7 @@ if (isset($session->role)) {
                         </select>
                     </div>
                     <div class="input-style-2 form-group">
-                        <select class="form-control">
+                        <select class="form-control selectpicker">
                             <option disabled selected>Tipo</option>
                             <option>Rural</option>
                             <option>Urbana</option>
@@ -52,9 +55,7 @@ if (isset($session->role)) {
                         </select>
                     </div>
                     <div class="input-style-2 form-group">
-                        <select class="form-control">
-                            <option disabled selected>Facilidades</option>
-                            <?php   ?>
+                        <select multiple class="form-control selectpicker">
                             <option>Televisión por cable</option>
                             <option>Teléfono</option>
                             <option>Internet</option>
@@ -85,7 +86,7 @@ if (isset($session->role)) {
                         <input class="form-control" type="text" placeholder="Enlace Imagen" required/>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input type="submit" class="form-control login-btn c-button full b-50 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrar"/>
+                        <input type="submit" class="form-control sidebar-text-label login-btn c-button full b-50 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrar"/>
                     </div>
                 </form>
             </div>				
@@ -94,6 +95,10 @@ if (isset($session->role)) {
 </div>  
 
 <script>
+
+    $(".selectpicker").selectpicker({
+        noneSelectedText: 'Facilidades'
+    });
 
     function send() {
 

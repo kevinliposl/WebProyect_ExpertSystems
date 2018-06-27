@@ -18,6 +18,9 @@ if (isset($session->role)) {
     })();
 </script>
 
+<link href="public/css/select.css" rel="stylesheet" type="text/css" />
+<script src="public/js/bootstrap-select.min.js"></script>
+
 <div class="container">
     <div class="login-fullpage">                                                                            
         <div class="row">
@@ -29,9 +32,12 @@ if (isset($session->role)) {
                     </div>
                     <form class="f-login-form">
                         <div class="input-style-1 b-50 type-2 color-5">
-                            <input type="text" placeholder="Lista de destinos" required>
+                            <select class="form-control selectpicker">
+                                <option>1</option>
+                                
+                            </select>
                         </div>
-                        <input type="submit" class="login-btn c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Eliminar">
+                        <input type="submit" class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Eliminar">
                     </form>
                 </div>				
             </div>

@@ -24,7 +24,7 @@ class UserController {
     function signUp() {
         if (isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['style']) && !SSession::getInstance()->__isset("role")) {
             $model = new UserModel;
-            $result = $model->signUp($_POST['mail'], $_POST['password']);
+            $result = $model->signUp($_POST['mail'], $_POST['password'], $_POST['name'], $_POST['lastname'], $_POST['style']);
             echo json_encode(array('result' => $result['result']));
         } else {
             echo json_encode(array('result' => 0));

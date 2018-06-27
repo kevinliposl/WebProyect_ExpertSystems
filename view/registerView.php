@@ -16,7 +16,7 @@ if (isset($session->role)) {
                         <div class="f-login-title color-dr-blue-2">¡Registrarse ahora!</div>
                         <div class="f-login-desc color-grey">Por favor ingrese los datos de su cuenta</div>
                     </div>
-                    <form class="f-login-form" onsubmit="return send();">
+                    <form class="f-login-form" onsubmit="send(); return false">
                         <div class="input-style-2 form-group">
                             <input id="form-mail" class="form-control" type="text" placeholder="Correo Electronico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                         </div>
@@ -27,7 +27,7 @@ if (isset($session->role)) {
                             <input id="form-lastname" class="form-control" type="text" placeholder="Apellido" minlength="2" required>
                         </div>
                         <div class="input-style-2 form-group">
-                            <input id="form-password" class="form-control" type="text" placeholder="Contraseña" minlength="2" required>
+                            <input id="form-password" class="form-control" type="password" placeholder="Contraseña" minlength="2" required>
                         </div>
                         <div class="input-style-2 form-group"> 
                             <select id="form-style" class="form-control" required>
@@ -39,6 +39,7 @@ if (isset($session->role)) {
                         </div>				
                         <input type="submit" class="login-btn sidebar-text-label c-button full b-60 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrarse">
                     </form>
+                    <div id="form-message"></div>
                 </div>				
             </div>
         </div>
@@ -62,10 +63,10 @@ if (isset($session->role)) {
 
         $('#form-message').html("Espere...");
 
-        $.post('?controller=User&action=signOn', args, function (data) {
+        $.post('?controller=User&action=signUp', args, function (data) {
             if (parseInt(data.result) === 1) {
-                $('#form-message').html("Redireccionando...");
-                setTimeout("location.href = '?';", 1000);
+                $('#form-message').html("Registro Exitoso...Redireccionando...");
+                setTimeout("location.href = '?';", 2000);
             } else {
                 $('#form-message').html("Datos erróneos. Por favor, inténtelo otra vez.");
                 setTimeout("$('#form-message').html('');", 5000);

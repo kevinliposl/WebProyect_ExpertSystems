@@ -12,6 +12,18 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
+CREATE PROCEDURE sp_get_two_attraction(
+  name_attraction_one VARCHAR(255),
+  name_attraction_two VARCHAR(255)
+)
+BEGIN
+	SELECT *
+    FROM tb_attraction
+    WHERE attraction_name = name_attraction_one OR attraction_name = name_attraction_two;
+END $$
+DELIMITER ;
+
+DELIMITER $$
 CREATE PROCEDURE sp_get_all_naive_bayes_data(
   _event_name VARCHAR(255)
 )

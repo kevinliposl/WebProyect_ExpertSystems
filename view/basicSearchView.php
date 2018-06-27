@@ -8,7 +8,6 @@ if (isset($session->role)) {
 ?>
 
 <style>
-
     .fullscreen-modal .modal-dialog {
         margin: 0;
         margin-right: auto;
@@ -31,12 +30,6 @@ if (isset($session->role)) {
         }
     }
 </style>
-
-<script>
-    (function () {
-        $("#menu-basic-search").addClass("active");
-    })();
-</script>
 
 <div class="top-baner header2-baner">
     <div id="map-canvas" class="style-1" data-lat="9.353737" data-lng="-83.970832" data-zoom="8" data-style="2"></div>
@@ -72,20 +65,16 @@ if (isset($session->role)) {
 </div>
 
 <div class="container">
-    <form action="#" class="hotel-filter">
+    <form class="hotel-filter" onsubmit="send(); return false">
         <div class="baner-bar cars-bar">
             <div class="row">
                 <div class="col-md-12">
                     <div class="hotels-block">
                         <h4>Localización</h4>
-                        <select class="form-control">
-                            <option value="-1">No importa</option>
-                            <?php
-                            foreach ($vars['attraction'] as $value) {
-                                $tmpId = $value['id'];
-                                $tmpName = $value['name'];
-                                echo "<option value = '$tmpId'>$tmpName</option>";
-                            }
+                        <select id="form-location" class="form-control">
+                            <?php foreach ($vars['location'] as $value) { ?>
+                                <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>";
+                            <?php }
                             ?>
                         </select>
                     </div>
@@ -97,14 +86,11 @@ if (isset($session->role)) {
                     <div class="hotels-block">
                         <h4>Atracción</h4>
                         <div class="input-style-1"> 
-                            <select class="form-control">
+                            <select id="form-attraction" class="form-control">
                                 <option value="-1">No importa</option>
-                                <?php
-                                foreach ($vars['attraction'] as $value) {
-                                    $tmpId = $value['id'];
-                                    $tmpName = $value['name'];
-                                    echo "<option value = '$tmpId'>$tmpName</option>";
-                                }
+                                <?php foreach ($vars['attraction'] as $value) { ?>
+                                    <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>";
+                                <?php }
                                 ?>
                             </select>
                         </div>
@@ -114,14 +100,10 @@ if (isset($session->role)) {
                     <div class="hotels-block">
                         <h4>Tipo</h4>
                         <div class="input-style-1"> 
-                            <select class="form-control">
-                                <option>No importa</option>
-                                <?php
-                                foreach ($vars['type'] as $value) {
-                                    $tmpId = $value['id'];
-                                    $tmpName = $value['name'];
-                                    echo "<option value = '$tmpId'>$tmpName</option>";
-                                }
+                            <select id="form-type" class="form-control">
+                                <?php foreach ($vars['type'] as $value) { ?>
+                                    <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>";
+                                <?php }
                                 ?>
                             </select>
                         </div>
@@ -131,8 +113,7 @@ if (isset($session->role)) {
                     <div class="hotels-block">
                         <h4>Calificación</h4>
                         <div class="input-style-1"> 
-                            <select class="form-control">
-                                <option value="-1">No importa</option>
+                            <select id="form-qualification" class="form-control">
                                 <option value="1">Una Estrella</option>
                                 <option value="2">Dos Estrellas</option>
                                 <option value="3">Tres Estrellas</option>
@@ -151,6 +132,37 @@ if (isset($session->role)) {
         </div>
     </form>
 </div>  
+
+<script>
+    (function () {
+        $("#menu-basic-search").addClass("active");
+    })();
+
+    function send() {
+        var data = {
+            'location': $('#form-location').val(),
+            'qualification': $('#form-qualification').val(),
+            'attraction': $('#form-attraction').val(),
+            'type': $('#form-type').val()
+        };
+
+        $('#form-message').html("Espere...");
+
+        $.post('?controller=Destiny&action=basicSearchViewData', {data}, function (response) {
+            alert(JSON.stringify(response));
+
+//            if (parseInt(data.result) === 1) {
+//                $('#form-message').html("Se realizó el envió a su correo electrónico...");
+//                setTimeout("location.href = '?';", 1000);
+//            } else {
+//                $('#form-message').html("Datos erróneos. Por favor, inténtelo otra vez.");
+//                setTimeout("$('#form-message').html('');", 5000);
+//            }
+        }, 'JSON').fail(function () {
+            alert("La solicitud a fallado!!!");
+        });
+    }
+</script>
 
 <div class="main-wraper hotel-items">
     <div class="container">

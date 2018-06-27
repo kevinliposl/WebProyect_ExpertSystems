@@ -226,6 +226,22 @@ BEGIN
 END $$
 DELIMITER ;
 
+DELIMITER $$ 
+CREATE PROCEDURE sp_delete_destination(
+id_tmp INTEGER
+)
+BEGIN
+	IF EXISTS(SELECT * FROM tb_destination WHERE destination_id = id_tmp)THEN 
+		DELETE FROM tb_destination_facilities
+        WHERE facilities_id = id_tmp;
+        DELETE FROM tb_destination
+        WHERE destination_id = id_tmp;
+        SELECT 1 as result;
+	ELSE
+		SELECT 0 as result;
+    END IF;
+END $$
+DELIMITER ;
 
 DELIMITER $$
 CREATE PROCEDURE sp_insert_facilities()
@@ -250,6 +266,5 @@ BEGIN
     SELECT @i;
 END $$
 DELIMITER ;
-
 
 CALL sp_insert_facilities();

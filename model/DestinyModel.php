@@ -81,6 +81,19 @@ class DestinyModel {
      * @param type $id
      * @return type
      */
+    function selectAllLocation() {
+        $query = $this->db->prepare("call sp_select_all_location();");
+        $query->execute();
+        $result = $query->fetchAll();
+        $query->closeCursor();
+        return $result;
+    }
+
+    /**
+     * Funcion para obtener facilidades segun destino
+     * @param type $id
+     * @return type
+     */
     function selectAllTypes() {
         $query = $this->db->prepare("call sp_select_all_type();");
         $query->execute();

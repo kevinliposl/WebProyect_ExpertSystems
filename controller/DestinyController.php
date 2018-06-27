@@ -26,7 +26,8 @@ class DestinyController {
         $destiny = $model->selectAll();
         $attraction = $model->selectAllAttraction();
         $types = $model->selectAllTypes();
-        $this->view->show("basicSearchView.php", array("destiny" => $destiny, "attraction" => $attraction, "type" => $types));
+        $locations = $model->selectAllLocation();
+        $this->view->show("basicSearchView.php", array("destiny" => $destiny, "attraction" => $attraction, "type" => $types, 'location' => $locations));
     }
 
     function basicSearchViewData() {
@@ -36,7 +37,6 @@ class DestinyController {
         $vars = $model->selectAllBasicTraining();
 
         $labels = array('location_id' => 7, 'type_id' => 3, 'stars' => 5, 'attraction_id' => 7);
-
         $possibleValues = array('location_id' => array(1, 2, 3, 4, 5, 6, 7),
             'type_id' => array(1, 2, 3),
             'stars' => array(1, 2, 3, 4, 5),
@@ -48,8 +48,8 @@ class DestinyController {
         $userValues = array('location_id' => intval('4'), 'type_id' => intval('1'), 'stars' => intval('1'));
         $naiveBayes->loadVariables($model->getAllTrainingData('basicsearch'), $labels, $possibleValues);
         $predict = $naiveBayes->predict($userValues);
+        echo json_encode($this->distanceEuclideanBasicSearch($predict, $userValues));
 
-        $this->distanceEuclideanBasicSearch($predict, $userValues);
     }
 
     function distanceEuclideanBasicSearch($predict, $userValues) {
@@ -75,7 +75,7 @@ class DestinyController {
                 }
             }
         }
-        echo json_encode($recomendation);
+        return $this->clearArray($recomendation);
     }
 
     function trainingBasicSearch() {
@@ -92,7 +92,6 @@ class DestinyController {
             'attraction_id' => array(1, 2, 3, 4, 5, 6, 7));
 
         $naiveBayes->training($vars, $labels, $possibleValues);
-
         $naiveBayes->saveTraining('basicsearch');
     }
 
@@ -155,12 +154,12 @@ class DestinyController {
      */
     function delete() {
         $model = new DestinyModel;
-        if (!$_POST['id']) {
+        if (!isset($_POST['id'])) {
             $vars = $model->selectAll();
             $this->view->show("deleteDestinyView.php", $vars);
         } else {
             $result = $model->delete($_POST['id']);
-            echo json_encode(array('result' => $result));
+            echo json_encode(array('result' => $result['result']));
         }
     }
 

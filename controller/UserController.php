@@ -52,8 +52,8 @@ class UserController {
         if (isset($_POST['mail'])) {
             $model = new UserModel;
             $result = $model->rememberPassword($_POST['mail']);
-            if (isset($result['password'])) {
-                $this->sendPassword($_POST['mail'], $_POST["password"]);
+            if ($result['result'] == 1) {
+                $this->sendPassword($_POST['mail'], $result["password"]);
                 echo json_encode(array('result' => 1));
             } else {
                 echo json_encode(array('result' => 0));
@@ -101,8 +101,8 @@ class UserController {
 
     private function sendPassword($mail, $password) {
         $subject = "Recuperar Contraseña";
-        $message = "Su contraseña es :" + $password;
-        while (!SMail::getInstance() - sendMail($mail, $subject, $message));
+        $message = "Su contraseña es :" . $password;
+        while (!SMail::getInstance()->sendMail($mail, $subject, $message));
     }
 
 }

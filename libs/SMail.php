@@ -26,7 +26,7 @@ class SMail {
 
             $this->mail->setFrom('Pruebas', 'Pruebas');
             $this->mail->FromName = 'Soporte Tecnico';
-            $this->mail->From = 'Soporte@Pruebas.com';
+            $this->mail->From = 'Soporte@pktourism.com';
 
             $this->mail->Subject = $subject;
 

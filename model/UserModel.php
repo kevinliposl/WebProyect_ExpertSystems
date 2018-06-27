@@ -57,7 +57,7 @@ class UserModel {
      * @return type
      */
     function rememberPassword($mail) {
-        $query = $this->db->prepare("call sp_select_user(:mail);");
+        $query = $this->db->prepare("call sp_remember_password(:mail);");
         $query->execute(array('mail' => $mail));
         $result = $query->fetch();
         $query->closeCursor();

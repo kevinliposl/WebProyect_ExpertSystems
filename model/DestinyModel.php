@@ -112,4 +112,12 @@ class DestinyModel {
         return $allTrainingData;
     }
 
+    function selectGetTwoAttraction($one, $two) {
+        $query = $this->db->prepare("call sp_get_two_destination('$one','$two');");
+        $query->execute();
+        $result = $query->fetchAll();
+        $query->closeCursor();
+        return $result;
+    }
+
 }

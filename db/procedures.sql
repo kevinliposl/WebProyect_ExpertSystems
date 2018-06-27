@@ -12,14 +12,14 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-CREATE PROCEDURE sp_get_two_attraction(
-  name_attraction_one VARCHAR(255),
-  name_attraction_two VARCHAR(255)
+CREATE PROCEDURE sp_get_two_destination(
+  id_attraction_one INTEGER,
+  id_attraction_two INTEGER
 )
 BEGIN
 	SELECT *
-    FROM tb_attraction
-    WHERE attraction_name = name_attraction_one OR attraction_name = name_attraction_two;
+    FROM tb_destination
+    WHERE destination_attraction_id = id_attraction_one OR destination_attraction_id = id_attraction_two;
 END $$
 DELIMITER ;
 

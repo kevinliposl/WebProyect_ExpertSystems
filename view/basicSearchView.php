@@ -45,25 +45,6 @@ if (isset($session->role)) {
     ?>
 </div>
 
-<!--<button type="button" class="c-button b-40 bg-red-3 hv-red-3-o fl" data-toggle="modal" data-target="#myModal">
-    Modal
-</button>
-
-<div class="modal fullscreen-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>-->
-
 <div class="container">
     <form class="hotel-filter" onsubmit="send(); return false">
         <div class="baner-bar cars-bar">

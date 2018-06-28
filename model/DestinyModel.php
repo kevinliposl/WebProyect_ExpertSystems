@@ -102,6 +102,19 @@ class DestinyModel {
         return $result;
     }
 
+    /**
+     * Funcion para obtener facilidades segun destino
+     * @param type $id
+     * @return type
+     */
+    function selectAllFacilities() {
+        $query = $this->db->prepare("call sp_select_all_facilities();");
+        $query->execute();
+        $result = $query->fetchAll();
+        $query->closeCursor();
+        return $result;
+    }
+
     function getAllTrainingData($mode) {
 
         $query = $this->db->prepare("call sp_get_all_naive_bayes_data('$mode')");
@@ -130,6 +143,26 @@ class DestinyModel {
     function delete($id) {
         $query = $this->db->prepare("call sp_delete_destination(:id);");
         $query->execute(array('id' => $id));
+        $result = $query->fetch();
+        $query->closeCursor();
+        return $result;
+    }
+
+    function insert($name, $description, $attraction, $type, $location, $price, $lat, $lng, $video, $photo, $stars, $style) {
+        $query = $this->db->prepare("call sp_insert_destination(:name,:description,:attraction,:type,:location,:price,:lat,:lng,:video,:photo,:stars,:style);");
+        $query->execute(
+                array('name' => $name, 'description' => $description, 'attraction' => $attraction, 'type' => $type
+                    , 'location' => $location, 'price' => $price, 'lat' => $lat, 'lng' => $lng, 'video' => $video
+                    , 'photo' => $photo, 'stars' => $stars, 'style' => $style)
+        );
+        $result = $query->fetch();
+        $query->closeCursor();
+        return $result;
+    }
+
+    function insertfacilities($id, $facility) {
+        $query = $this->db->prepare("call sp_insert_facility(:destiny,:facility);");
+        $query->execute(array('destiny' => $id, 'facility' => $facility));
         $result = $query->fetch();
         $query->closeCursor();
         return $result;

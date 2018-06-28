@@ -1,5 +1,4 @@
 <?php
-
 $session = SSession::getInstance();
 if (isset($session->role)) {
     if ($session->role === "adm") {
@@ -29,66 +28,68 @@ if (isset($session->role)) {
                     <div class="f-login-title color-dr-blue-2">¡Registrar Destino!</div>
                     <div class="f-login-desc color-grey">Por favor ingrese los datos solicitados!</div>
                 </div>
-                <form class="f-login-form" onsubmit="send(); return false;">
+                <form class="f-login-form" onsubmit="send(); return false">
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="text" placeholder="Nombre" required>
+                        <input id="form-name" class="form-control" type="text" placeholder="Nombre" required>
+                    </div>
+                    <div class="input-style-2 form-group">
+                        <input id="form-description" class="form-control" type="text" placeholder="Descripci&oacute;n" required>
                     </div>
                     <div  class="input-style-2 form-group"> 
-                        <select class="form-control selectpicker">
+                        <select id="form-attraction" class="form-control selectpicker">
                             <option disabled selected>Atracci&oacute;n</option>
-                            <option>Parques Nacionales</option>
-                            <option>Ruinas y Lugares Históricos</option>
-                            <option>Galerías y Museos</option>
-                            <option>Jardines botánicos y zoológicos</option>
-                            <option>Miradores</option>
-                            <option>Hotel</option>
-                            <option>Restaurante</option>
+                            <?php foreach ($vars['attraction'] as $value) { ?>
+                                <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>";
+                            <?php }
+                            ?>                   
                         </select>
                     </div>
                     <div class="input-style-2 form-group">
-                        <select class="form-control selectpicker">
+                        <select id="form-type" class="form-control selectpicker">
                             <option disabled selected>Tipo</option>
-                            <option>Rural</option>
-                            <option>Urbana</option>
-                            <option>Costera</option>
-                            <option>De Montaña</option>
+                            <?php foreach ($vars['type'] as $value) { ?>
+                                <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>";
+                            <?php }
+                            ?>                   
                         </select>
                     </div>
                     <div class="input-style-2 form-group">
-                        <select multiple class="form-control selectpicker">
-                            <option>Televisión por cable</option>
-                            <option>Teléfono</option>
-                            <option>Internet</option>
-                            <option>Bar</option>
-                            <option>Restaurante</option>
-                            <option>Transporte</option>
-                            <option>Hospedaje</option>
-                            <option>Espacio para niños</option>
-                            <option>Asistencia</option>                        
+                        <select id="form-facilities" multiple class="form-control selectpicker">
+                            <?php foreach ($vars['facilities'] as $value) { ?>
+                                <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>";
+                            <?php }
+                            ?>                   
                         </select>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="text" placeholder="Localizaci&oacute;n" required/>
+                        <select id="form-location" class="form-control selectpicker">
+                            <option disabled selected>Localizaci&oacute;n</option>
+                            <?php foreach ($vars['location'] as $value) { ?>
+                                <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>";
+                            <?php }
+                            ?>                   
+                        </select>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="number" placeholder="Precio" required/>
+                        <input id="form-price" class="form-control" type="number" min="0" max="1000" placeholder="Precio" required/>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="number" placeholder="Latitud" required/>
+                        <input id="form-latitude" class="form-control" type="text" placeholder="Latitud" required/>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="number" placeholder="Longitud" required/>
+                        <input id="form-logitude" class="form-control" type="text" placeholder="Longitud" required/>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="text" placeholder="Enlace Video" required/>
+                        <input id="form-video" class="form-control" type="text" placeholder="Enlace Video" required/>
                     </div>
                     <div class="input-style-2 form-group">
-                        <input class="form-control" type="text" placeholder="Enlace Imagen" required/>
+                        <input id="form-image" class="form-control" type="text" placeholder="Enlace Imagen" required/>
                     </div>
                     <div class="input-style-2 form-group">
                         <input type="submit" class="form-control sidebar-text-label login-btn c-button full b-50 bg-dr-blue-2 hv-dr-blue-2-o" value="Registrar"/>
                     </div>
                 </form>
+                <div id="form-message"></div>
             </div>				
         </div>
     </div>
@@ -102,12 +103,23 @@ if (isset($session->role)) {
 
     function send() {
         var args = {
-            'mail': $('#form-mail').val().trim()
+            'image': $('#form-image').val(),
+            'video': $('#form-video').val(),
+            'logitude': $('#form-logitude').val(),
+            'latitude': $('#form-latitude').val(),
+            'price': $('#form-price').val(),
+            'location': $('#form-location').val(),
+            'facilities': $('#form-facilities').val(),
+            'type': $('#form-type').val(),
+            'attraction': $('#form-attraction').val(),
+            'description': $('#form-description').val(),
+            'name': $('#form-name').val()
         };
 
+        alert(JSON.stringify(args));
         $('#form-message').html("Espere...");
 
-        $.post('?controller=User&action=rememberPassword', args, function (data) {
+        $.post('?controller=Destiny&action=insert', args, function (data) {
             if (parseInt(data.result) === 1) {
                 $('#form-message').html("Se realizó el envió a su correo electrónico...");
                 setTimeout("location.href = '?';", 1000);
@@ -122,5 +134,4 @@ if (isset($session->role)) {
 </script>
 
 <?php
-
 include_once 'public/footer.php';

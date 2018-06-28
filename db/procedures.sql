@@ -221,15 +221,76 @@ END $$
 DELIMITER ;
 
 DELIMITER $$ 
+CREATE PROCEDURE sp_select_all_facilities()
+BEGIN
+	SELECT facilities_name name, facilities_id id FROM tb_facilities;
+END $$
+DELIMITER ;
+
+DELIMITER $$ 
 CREATE PROCEDURE sp_select_all_type()
 BEGIN
 	SELECT type_name name, type_id id FROM tb_type;
 END $$
 DELIMITER ;
 
+
+DELETE FROM tb_destination
+WHERE destination_id = 205;
+
+DELETE FROM tb_destination_facilities
+WHERE destination_id = 205;
+
+DELIMITER $$ 
+CREATE PROCEDURE sp_insert_facility(
+id_tmp INTEGER,
+id_facility INTEGER
+)
+BEGIN
+	INSERT INTO tb_destination_facilities(destination_id,facilities_id)
+    VALUES(id_tmp,id_facility);
+END $$
+DELIMITER ;
+
+-- $result = $model->insert($_POST['name'], $_POST['description'], $_POST['attraction'], $_POST['type'], $_POST['location'], $_POST['$price']
+--                    , $_POST['latitude'], $_POST['logitude'], $_POST['video'], $_POST['image'], rand(1, 5), rand(1, 3)
+
+
+
+
+CALL sp_insert_destination('prueba','descripción',1,1,1,200,'lati','long123123','videovideo','photo',3,2);
+
+DELIMITER $$ 
+CREATE PROCEDURE sp_insert_destination(
+	name_tmp VARCHAR(255),
+	description_tmp VARCHAR(1000),
+	attraction_tmp INTEGER,
+	type_tmp INTEGER,
+	location_tmp INTEGER,
+	price_tmp INTEGER,
+	latitude_tmp VARCHAR(20),
+	logitude_tmp VARCHAR(20),
+	video_tmp VARCHAR(255),
+	photo_tmp VARCHAR(255),
+	star_tmp INTEGER,
+	style_tmp INTEGER
+)
+BEGIN
+	INSERT INTO tb_destination(destination_name, destination_description, destination_location, destination_url_video,destination_url_photo,
+	destination_latitude, destination_longitude, destination_stars, destination_price, destination_type_id,destination_attraction_id, destination_style_id)
+	VALUES(name_tmp,description_tmp,location_tmp,video_tmp,photo_tmp,latitude_tmp,logitude_tmp,star_tmp,price_tmp, type_tmp,attraction_tmp,style_tmp);
+	SET @i= (last_insert_id());
+	IF EXISTS(SELECT * FROM tb_destination WHERE destination_id = @i)THEN 
+		SELECT 1 as result, @i as id;  
+	ELSE
+		SELECT 0 as result;
+    END IF;
+END $$
+DELIMITER ;
+
 -- DROP PROCEDURE sp_select_destination
 
-call sp_select_facilities(11);
+call sp_select_facilities(10);
 
 DELIMITER $$ 
 CREATE PROCEDURE sp_select_destination(

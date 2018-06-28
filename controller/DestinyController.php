@@ -41,7 +41,7 @@ class DestinyController {
             'type_id' => array(1, 2, 3),
             'stars' => array(1, 2, 3, 4, 5),
             'attraction_id' => array(1, 2, 3, 4, 5, 6, 7));
-        
+
         $userValues = array('location_id' => $_POST['location'], 'type_id' => $_POST['type'], 'stars' => $_POST['qualification']);
 
         $naiveBayes->loadVariables($model->getAllTrainingData('basicsearch'), $labels, $possibleValues);
@@ -143,7 +143,26 @@ class DestinyController {
      * Redirecciona a insertar destino
      */
     function insert() {
-        $this->view->show("insertDestinyView.php");
+        if ($_POST['image']) {
+            $model = new DestinyModel();
+            $result = $model->insert($_POST['name'], $_POST['description'], intval($_POST['attraction']), intval($_POST['type']), intval($_POST['location'])
+                    , intval($_POST['price']), $_POST['latitude'], $_POST['logitude'], $_POST['video'], $_POST['image'], rand(1, 5), rand(1, 3));
+            if ($result['result'] !== "0") {
+                foreach ($_POST['facilities'] as $value) {
+                    $model->insertfacilities($result['id'], $value);
+                }
+                echo json_encode(array('result' => $result['result']));
+            } else {
+                echo json_encode(array('result' => 0));
+            }
+        } else {
+            $model = new DestinyModel();
+            $attraction = $model->selectAllAttraction();
+            $types = $model->selectAllTypes();
+            $locations = $model->selectAllLocation();
+            $facilities = $model->selectAllFacilities();
+            $this->view->show("insertDestinyView.php", array("facilities" => $facilities, "attraction" => $attraction, "type" => $types, 'location' => $locations));
+        }
     }
 
     /**

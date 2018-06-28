@@ -66,7 +66,7 @@ if (isset($session->role)) {
                                 ?> 
                                 <li><a href="?action=login">Iniciar Sesi&oacute;n</a></li>
                                 <li><a href="?action=register">Reg&iacute;strarse</a></li>
-                                <li><a href="?action=rememberPassword">Recordar Contraseña</a></li>
+                                <li><a href="?controller=User&action=rememberPassword">Recordar Contraseña</a></li>
                                 <?php
                             }
                             ?>

@@ -52,13 +52,6 @@ class IndexController {
     }
 
     /**
-     * Redirecciona a detalle de la atraccion
-     */
-    function destinationDetail() {
-        $this->view->show("destinationDetailView.php");
-    }
-
-    /**
      * Redirecciona al sobre nosotros
      */
     function aboutUs() {

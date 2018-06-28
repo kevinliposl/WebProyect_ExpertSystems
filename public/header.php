@@ -12,7 +12,6 @@
         <title>PK Tourism</title>
     </head>
     <body id="body" data-color="theme-1">
-
         <div class="loading dr-blue">
             <div class="loading-center">
                 <div class="loading-center-absolute">

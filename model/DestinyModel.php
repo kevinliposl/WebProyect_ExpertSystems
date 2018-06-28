@@ -135,4 +135,12 @@ class DestinyModel {
         return $result;
     }
 
+    function select($id) {
+        $query = $this->db->prepare("call sp_select_destination(:id);");
+        $query->execute(array('id' => $id));
+        $result = $query->fetch();
+        $query->closeCursor();
+        return $result;
+    }
+
 }

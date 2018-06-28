@@ -41,15 +41,12 @@ class DestinyController {
             'type_id' => array(1, 2, 3),
             'stars' => array(1, 2, 3, 4, 5),
             'attraction_id' => array(1, 2, 3, 4, 5, 6, 7));
+        
+        $userValues = array('location_id' => $_POST['location'], 'type_id' => $_POST['type'], 'stars' => $_POST['qualification']);
 
-        /*
-          $userPetition = json_decode($_POST['userPetition']);
-         */
-        $userValues = array('location_id' => intval('4'), 'type_id' => intval('1'), 'stars' => intval('1'));
         $naiveBayes->loadVariables($model->getAllTrainingData('basicsearch'), $labels, $possibleValues);
         $predict = $naiveBayes->predict($userValues);
         echo json_encode($this->distanceEuclideanBasicSearch($predict, $userValues));
-
     }
 
     function distanceEuclideanBasicSearch($predict, $userValues) {
@@ -168,6 +165,16 @@ class DestinyController {
      */
     function update() {
         $this->view->show("updateDestinyView.php");
+    }
+
+    /**
+     * Redirecciona a detalle de la atraccion
+     */
+    function destinationDetail() {
+        $model = new DestinyModel();
+        $resultDestiny = $model->select($_GET['id']);
+        $resultFacilities = $model->selectFacilities($_GET['id']);
+        $this->view->show("destinationDetailView.php", array('destiny' => $resultDestiny, 'facilities' => $resultFacilities));
     }
 
 }

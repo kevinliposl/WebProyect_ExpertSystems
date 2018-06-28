@@ -45,7 +45,7 @@ if (isset($session->role)) {
     ?>
 </div>
 
-<button type="button" class="c-button b-40 bg-red-3 hv-red-3-o fl" data-toggle="modal" data-target="#myModal">
+<!--<button type="button" class="c-button b-40 bg-red-3 hv-red-3-o fl" data-toggle="modal" data-target="#myModal">
     Modal
 </button>
 
@@ -58,11 +58,11 @@ if (isset($session->role)) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <div class="container">
     <form class="hotel-filter" onsubmit="send(); return false">
@@ -125,7 +125,7 @@ if (isset($session->role)) {
                 </div>
                 <div class="col-md-7">
                     <div class="submit">
-                        <input class="c-button b-60 bg-white hv-orange" type="submit" value="Buscar Ahora">
+                        <input class="c-button b-60 bg-white hv-orange" id="reload-map" type="submit" value="Buscar Ahora">
                     </div>
                 </div>
             </div>
@@ -138,6 +138,12 @@ if (isset($session->role)) {
         $("#menu-basic-search").addClass("active");
     })();
 
+    $('#reload-map').on('click', function () {
+        setTimeout(function () {
+            initialize();
+        }, 500);
+    });
+
     function send() {
         var data = {
             'location': $('#form-location').val(),
@@ -148,16 +154,55 @@ if (isset($session->role)) {
 
         $('#form-message').html("Espere...");
 
-        $.post('?controller=Destiny&action=basicSearchViewData', {data}, function (response) {
-            alert(JSON.stringify(response));
+        $.post('?controller=Destiny&action=basicSearchViewData', data, function (response) {
+            var i = 4;
+            var tmp = 0;
+            var string_data = "";
+            var string_address = "";
+            //element.destination_id;
+            //destination_name
+            //destination_description
+            //destination_url_video
+            //destination_url_photo
+            //destination_latitude
+            //destination_longitude
+            //destination_stars
+            //destination_price
 
-//            if (parseInt(data.result) === 1) {
-//                $('#form-message').html("Se realizó el envió a su correo electrónico...");
-//                setTimeout("location.href = '?';", 1000);
-//            } else {
-//                $('#form-message').html("Datos erróneos. Por favor, inténtelo otra vez.");
-//                setTimeout("$('#form-message').html('');", 5000);
-//            }
+            $("#form-search-result").html("");
+            $("#count-result").html(response.length + " Resultados");
+
+            response.forEach(function (element) {
+                if ((i % 4) === 0) {
+                    tmp = i + 3;
+                    string_data += "<div class='row'>";
+                }
+                string_data += "<div class='col-md-3 col-sm-6 col-xs-12'>";
+                string_data += "<div class='hotel-item style-7'>";
+                string_data += "<div class='radius-top'>";
+                string_data += "<img style='max-width:100%; max-height:100%; height:35%' src='" + element.destination_url_photo + "'alt=''/>";
+                string_data += "</div>";
+                string_data += "<div class='title'>";
+                string_data += "<h5>Servicios desde";
+                string_data += "<strong class='color-red-3'> &#36;" + element.destination_price + "</strong> / persona</h5>";
+                string_data += "<h4>";
+                string_data += "<b>" + element.destination_name + "</b>";
+                string_data += "</h4>";
+                string_data += "<p></p>";
+                string_data += "<div class='clearfix'>";
+                string_data += "<a href='?controller=Destiny&action=destinationDetail&id=" + element.destination_id + "'";
+                string_data += "target='_blank' class='c-button b-40 bg-red-3 hv-red-3-o fl'>Ver más</a>";
+                string_data += "</div></div></div></div>";
+
+                if (i === tmp) {
+                    string_data += "</div><br>";
+                }
+                i++;
+            });
+            if (i !== tmp) {
+                string_data += "</div>";
+            }
+            $("#form-search-result").html(string_data);
         }, 'JSON').fail(function () {
             alert("La solicitud a fallado!!!");
         });
@@ -170,51 +215,20 @@ if (isset($session->role)) {
              ">
             <div class="col-md-12">
                 <div class="second-title">
-                    <h2>Resultados <?php echo count($vars['destiny']); ?></h2>
+                    <h2 id="count-result"></h2>
                 </div>
             </div>
         </div>
-        <?php
-        $i = 4;
-        $tmp = 0;
-        foreach ($vars['destiny'] as $value) {
-            if (($i % 4) == 0) {
-                $tmp = $i + 3;
-                echo "<div class='row'>";
-            }
-            ?>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="hotel-item style-7">
-                    <div class="radius-top">
-                        <img style="height: 100%; width: 100%; max-width: 100%; max-height: 100%;" src="<?php echo trim($value['url_photo']); ?>" alt="">
-                    </div>
-                    <div class="title">
-                        <h5>Servicios desde
-                            <strong class="color-red-3">&#36;<?php echo trim($value['price']); ?></strong> / persona</h5>
-                        <h6 class="color-grey-3"><?php echo trim($value['location']); ?></h6>
-                        <h4>
-                            <b><?php echo trim($value['name']); ?></b>
-                        </h4>
-                        <p></p>
-                        <div class="clearfix">
-                            <a href="?action=destinationDetail" target="_blank" class="c-button b-40 bg-red-3 hv-red-3-o fl">Ver más</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-            if ($i == $tmp) {
-                echo "</div>";
-            }
-            $i++;
-        }
-        ?>
+        <div id="form-search-result">
+
+        </div>
     </div>
 </div>
 
 <?php
 include_once 'public/footer.php';
 ?>
+
 <script src="public/js/jquery.circliful.min.js"></script>
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;language=es&key=AIzaSyBT_bTr4NqhArVYWCSHkxM4qjruliItm_M"></script>	
+<script src="http://maps.googleapis.com/maps/api/js?amp;language=es&key=AIzaSyBT_bTr4NqhArVYWCSHkxM4qjruliItm_M"></script>	
 <script src="public/js/map.js"></script>

@@ -198,7 +198,8 @@ id_tmp INTEGER
 )
 BEGIN
 	SELECT facilities_name facilities
-    FROM tb_facilities f INNER JOIN tb_destination_facilities df ON f.facilities_id = df.facilities_id
+    FROM tb_facilities f 
+    INNER JOIN tb_destination_facilities df ON f.facilities_id = df.facilities_id
     INNER JOIN tb_destination d ON df.destination_id = d.destination_id
     WHERE d.destination_id = id_tmp;
 END $$
@@ -226,6 +227,25 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- DROP PROCEDURE sp_select_destination
+
+call sp_select_facilities(11);
+
+DELIMITER $$ 
+CREATE PROCEDURE sp_select_destination(
+id_tmp INTEGER
+)
+BEGIN
+	IF EXISTS(SELECT * FROM tb_destination WHERE destination_id = id_tmp)THEN 
+		SELECT *, 1 as result 
+        FROM tb_destination
+        WHERE destination_id = id_tmp;
+	ELSE
+		SELECT 0 as result;
+    END IF;
+END $$
+DELIMITER ;
+
 DELIMITER $$ 
 CREATE PROCEDURE sp_delete_destination(
 id_tmp INTEGER
@@ -243,6 +263,8 @@ BEGIN
 END $$
 DELIMITER ;
 
+DROP PROCEDURE sp_insert_facilities;
+
 DELIMITER $$
 CREATE PROCEDURE sp_insert_facilities()
 BEGIN
@@ -255,9 +277,11 @@ BEGIN
 		SET@tmp = 0;
         WHILE @tmp <= @j DO
 			SET @idfacilities = (SELECT myRandom(1,@d));
-			IF NOT EXISTS(SELECT * FROM tb_destination_facilities WHERE facilities_id = @idfacilities AND destination_id= @i)THEN 
+			IF NOT EXISTS(SELECT * FROM tb_destination_facilities WHERE facilities_id = @idfacilities AND destination_id= @i)THEN
+				IF EXISTS(SELECT * FROM tb_destination WHERE destination_id = @i)THEN
 				INSERT INTO tb_destination_facilities (destination_id,facilities_id)
                 VALUES (@i, @idfacilities);
+                END IF;
                 SET @tmp = @tmp+1;
             END IF;
 		END WHILE;

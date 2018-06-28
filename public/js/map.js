@@ -1,7 +1,6 @@
 /* global google */
 
 $(function () {
-
     var marker = [], infowindow = [], map, image = '';
 
     function addMarker(location, name, contentstr) {
@@ -104,13 +103,13 @@ $(function () {
     $(window).load(function () {
         setTimeout(function () {
             initialize();
-        }, 200);
+        }, 50);
     });
 
     $('.click-tabs').on('click', function () {
         setTimeout(function () {
             initialize();
-        }, 500);
+        }, 50);
 
     });
 });
